@@ -30,7 +30,7 @@
 <https://docs.google.com/spreadsheets/d/11gjT1ZT6cddt3xIDzvy5iHO-zjUwDXJejuFP6gxQmJ0/edit#gid=0>
 
 ## ワイヤーフレーム
-<file:///C:/Users/mocch/Documents/%E5%A4%A7%E5%96%9C%E5%88%A9%E3%82%B5%E3%82%A4%E3%83%88%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%BC%E3%83%95%E3%83%AC%E3%82%A4%E3%83%A0.pdf>
+<https://drive.google.com/file/d/13X29sjcu5YCUZxIdf8V_vxN622m3M4KK/view>
 
 ## テーブル議定書
 <https://docs.google.com/spreadsheets/d/1s05vqHyQhMXTfPBiPQtfarSeJJlXNdYoKWSRZy8xCoc/edit#gid=1373217982>
