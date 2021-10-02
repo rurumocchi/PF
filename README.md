@@ -20,7 +20,8 @@
 <ツイッターのようなSNS形式でだれでも簡単に大喜利を投稿することができる。
 その投稿に対して、いいねを押したり、気になった人をフォローしたり、5段階評価で評価することができる。
 ソート機能によって新着順やいいねが多い順や評価が高い順などで一覧で見ることができる。
-大喜利のジャンルをそれぞれ分けて、ジャンルを検索することでそのジャンルのみを見れるようにしたい。>
+大喜利のジャンルをそれぞれ分けて、ジャンルを検索することでそのジャンルのみを見れるようにしたい。
+ワイヤーフレイムの最後のいいね一覧はできれば採用したい。>
 
 ## 機能一覧機能
 <https://docs.google.com/spreadsheets/d/1magWZjxG3ZbZLP-y6WBmF6_hdRfbQ3gDlPTfXBJKcEE/edit#gid=0>
@@ -29,7 +30,7 @@
 <https://docs.google.com/spreadsheets/d/11gjT1ZT6cddt3xIDzvy5iHO-zjUwDXJejuFP6gxQmJ0/edit#gid=0>
 
 ## ワイヤーフレーム
-< file:///C:/Users/mocch/Documents/%E5%A4%A7%E5%96%9C%E5%88%A9%E3%82%B5%E3%82%A4%E3%83%88%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%BC%E3%83%95%E3%83%AC%E3%82%A4%E3%83%A0.pdf>
+<file:///C:/Users/mocch/Documents/%E5%A4%A7%E5%96%9C%E5%88%A9%E3%82%B5%E3%82%A4%E3%83%88%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%BC%E3%83%95%E3%83%AC%E3%82%A4%E3%83%A0.pdf>
 
 ## テーブル議定書
 <https://docs.google.com/spreadsheets/d/1s05vqHyQhMXTfPBiPQtfarSeJJlXNdYoKWSRZy8xCoc/edit#gid=1373217982>
