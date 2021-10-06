@@ -1,0 +1,2 @@
+module OgirisHelper
+end
