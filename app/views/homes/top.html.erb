@@ -1,5 +1,20 @@
-<div class = "contaoner">
-  <div class = "row">
-    <h2>home</h2>
+<div class = "container">
+  <div class = "row" style="margin-top:200px;">
+    <div class = "col-md-12 mx-auto">
+      <div class = "text-center mt-5 mb-4">
+        <h1 class = "text-center mb-5">お手軽大喜利</h1>
+        <h2>誰でも簡単に大喜利を投稿できるSNSです！！</h2>
+      </div>
+    </div>
+    <div class = "row col-md-8 mx-auto" style="margin-top:100px;">
+      <div class = "col-md-8 mx-auto">
+        <div class = "text-left">
+          <%= link_to ' sign up', new_user_registration_path %>
+        </div>
+        <div class = "text-right">
+          <%= link_to ' log in', new_user_session_path %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
