@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_06_035827) do
+ActiveRecord::Schema.define(version: 2021_10_09_092603) do
 
   create_table "categories", force: :cascade do |t|
     t.string "category"
@@ -37,11 +37,10 @@ ActiveRecord::Schema.define(version: 2021_10_06_035827) do
   create_table "ogiris", force: :cascade do |t|
     t.integer "user_id"
     t.integer "category_id"
-    t.string "image_id"
     t.text "answer"
-    t.float "rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_id"
   end
 
   create_table "relationships", force: :cascade do |t|

@@ -19,10 +19,46 @@
 
  header{
   background-color:#deb887;
-  height:100px;
+  height:120px;
 }
-
+.title{
+  color: white;
+  font-family: serif;
+  width: 300px;
+  text-align: center;
+  border-radius: 20px;
+  border: 10px double #ffffff;
+}
+.border-header{
+  border: 10px double #ffffff;
+}
 
 .nav-link{
  font-size: 30px;
+}
+
+.title-heading {
+    color: white;
+    font-family: serif;
+    margin: 30px 20px;
+    width: 300px;
+    text-align: center;
+    background: #deb887;
+    padding: 0.5em;
+    border-radius: 20px;
+  }
+
+.btn-entry{
+  border:solid 1px #4169e1;
+      color:#4169e1;
+      background:#ffffff;
+}
+
+.border {
+     border:solid 1px #4169e1;
+     padding:10px;
+}
+
+.ogiri-image {
+    width:150px;
 }

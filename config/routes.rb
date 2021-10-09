@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get 'followers' => 'relationships#followers', as: 'followers'
   end
 
-  resources :ogiris, only: [:index, :show, :create, :destroy] do
+  resources :ogiris, only: [:new, :index, :show, :create, :destroy] do
     resource :favorites, only: [:create, :destroy]
     resources :ogiri_comments, only: [:create, :destroy]
   end

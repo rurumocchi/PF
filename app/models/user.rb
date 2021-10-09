@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :ogiris
+  has_many :ogiris, dependent: :destroy
   has_many :favorites
   has_many :ogiri_comments
 

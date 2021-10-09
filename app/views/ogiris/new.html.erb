@@ -1,0 +1,22 @@
+<div class = "container px-5 px-sm-0">
+  <div class = "row">
+    <div class = "col-md-3" style="margin-top:150px;">
+      <%= render 'users/info', user: current_user %>
+    </div>
+    <div class = "col-md-8 offset-md-1" style="margin-top:150px;">
+      <%= form_with model:@ogiri, local:true do |f| %>
+      <div class = "form-group">
+        <%= f.label :image %>
+        <%= f.attachment_field :image, class: "form-control-file image" %>
+      </div>
+      <div class = "form-group">
+        <%= f.label :answer %>
+        <%= f.text_field :answer, class: "form-control answer" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit '投稿する', class: 'btn btn-secondary' %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>

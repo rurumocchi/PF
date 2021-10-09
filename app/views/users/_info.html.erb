@@ -1,0 +1,46 @@
+
+  <table class = "tabel">
+    <tr><%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
+    <tr>
+	    <th>name</th>
+	    <th>
+	      <%= link_to user_path(user) do %>
+         <%= user.name %>
+        <% end %>
+	    </th>
+    </tr>
+    <tr>
+      <th>follows</th>
+      <th>
+        <%= link_to user_followings_path(user) do %>
+         <%= user.followings.count %>
+        <% end %>
+      </th>
+    </tr>
+    <tr>
+      <th>followers</th>
+      <th>
+        <%= link_to user_followers_path(user) do %>
+          <%= user.followers.count %>
+        <% end %>
+      </th>
+    </tr>
+    <tr class = "mr-5">
+      <th>introduction</th>
+	    <th><%= user.introduction %></th>
+    </tr>
+  </table>
+  <div class = "row">
+    <% if user == current_user %>
+    <%= link_to edit_user_path(user), class:"btn btn-outline-secondary btn-block pt-3" do %>
+      <i class="fas fa-user-cog"><p class = "mt-2">編集する</p></i>
+    <% end %>
+    <%= link_to new_ogiri_path(@ogiri), class:"btn btn-outline-secondary btn-block text-center pt-3" do %>
+      <p>投稿する</p>
+    <% end %>
+  <% elsif current_user.following?(user) %>
+    <%= link_to "フォロー外す",  user_relationships_path(user), method: :delete, class: "btn btn-info btn-sm" %>
+  <% else %>
+    <%= link_to "フォローする",  user_relationships_path(user), method: :post, class: "btn btn-success btn-sm" %>
+  <% end %>
+  </div>
