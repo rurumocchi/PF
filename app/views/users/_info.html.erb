@@ -32,13 +32,15 @@
   </table>
   <div class = "row">
     <% if user == current_user %>
-    <%= link_to edit_user_path(user), class:"btn btn-outline-secondary btn-block pt-3" do %>
+    <%= link_to edit_user_path(user), class:"btn btn-outline-secondary btn-block pt-3 mt-3" do %>
       <i class="fas fa-user-cog"><p class = "mt-2">編集する</p></i>
     <% end %>
-    <%= link_to new_ogiri_path(@ogiri), class:"btn btn-outline-secondary btn-block text-center pt-3" do %>
+    <%= link_to new_ogiri_path(@ogiri), class:"btn btn-outline-secondary btn-block text-center pt-3 mt-3" do %>
       <p>投稿する</p>
     <% end %>
-  <% elsif current_user.following?(user) %>
+  </div>
+  <div class = "row">
+    <% elsif current_user.following?(user) %>
     <%= link_to "フォロー外す",  user_relationships_path(user), method: :delete, class: "btn btn-info btn-sm" %>
   <% else %>
     <%= link_to "フォローする",  user_relationships_path(user), method: :post, class: "btn btn-success btn-sm" %>

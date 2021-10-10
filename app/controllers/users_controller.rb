@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @ogiris = @user.ogiris
   end
 
   def edit

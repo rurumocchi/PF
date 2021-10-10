@@ -23,9 +23,13 @@ class OgirisController < ApplicationController
   end
 
   def show
+    @ogiri = Ogiri.find(params[:id])
   end
 
   def destroy
+    @ogiri = Ogiri.find(params[:id])
+    @ogiri.destroy
+    redirect_to ogiris_path
   end
 
   private
