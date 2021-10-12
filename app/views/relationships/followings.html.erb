@@ -1,0 +1,52 @@
+<div class = "container px-5 px-sm-0" style="margin-top: 80px;">
+  <div class = "row">
+    <div class = "col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h3 class = "mb-4">Follow Users</h3>
+      <% if @users.exists? %>
+      <% @users.each do |user| %>
+        <div  = "col-md-11 offset-md-1 ">
+          <table class = "table">
+            <tr>
+              <th>
+                <%= link_to user_path(user) do %>
+                  <%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %>
+                <% end %>
+              </th>
+            </tr>
+            <tr>
+	            <th class = "th">name</th>
+	            <th>
+	              <%= link_to user_path(user) do %>
+                 <%= user.name %>
+                <% end %>
+	            </th>
+            </tr>
+            <tr>
+              <th>follows</th>
+              <th>
+                <%= link_to user_followings_path(user) do %>
+                 <%= user.followings.count %>
+                <% end %>
+              </th>
+            </tr>
+            <tr>
+              <th>followers</th>
+              <th>
+                <%= link_to user_followers_path(user) do %>
+                  <%= user.followers.count %>
+                <% end %>
+              </th>
+            </tr>
+            <tr>
+              <th>introduction</th>
+	            <th class = "introduction ml-2"><%= user.introduction %></th>
+            </tr>
+          </table>
+        <% end %>
+      <% else %>
+            <p>ユーザーはいません</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

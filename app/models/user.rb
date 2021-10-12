@@ -5,8 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :ogiris, dependent: :destroy
-  has_many :favorites
-  has_many :ogiri_comments
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_ogiris, through: :favorites, source: :ogiri
+  has_many :ogiri_comments, dependent: :destroy
 
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :follower
@@ -23,6 +24,10 @@ class User < ApplicationRecord
 
   def following?(user)
     followings.include?(user)
+  end
+
+  def favorited_by?(ogiri_id)
+    favorites.where(ogiri_id: ogiri_id).exists?
   end
 
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true

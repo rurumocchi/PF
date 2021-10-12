@@ -1,8 +1,8 @@
 
-  <table class = "tabel">
-    <tr><%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
+  <table class = "table">
+    <tr><th><%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></th></tr>
     <tr>
-	    <th>name</th>
+	    <th class = "th">name</th>
 	    <th>
 	      <%= link_to user_path(user) do %>
          <%= user.name %>
@@ -25,24 +25,25 @@
         <% end %>
       </th>
     </tr>
-    <tr class = "mr-5">
+    <tr>
       <th>introduction</th>
-	    <th><%= user.introduction %></th>
+	    <th class = "introduction ml-2"><%= user.introduction %></th>
     </tr>
   </table>
+
   <div class = "row">
     <% if user == current_user %>
-    <%= link_to edit_user_path(user), class:"btn btn-outline-secondary btn-block pt-3 mt-3" do %>
+    <%= link_to edit_user_path(user), class:"btn btn-outline-secondary btn-block pt-3 m-3 " do %>
       <i class="fas fa-user-cog"><p class = "mt-2">編集する</p></i>
     <% end %>
-    <%= link_to new_ogiri_path(@ogiri), class:"btn btn-outline-secondary btn-block text-center pt-3 mt-3" do %>
+    <%= link_to new_ogiri_path(@ogiri), class:"btn btn-outline-secondary btn-block text-center pt-3 ml-3 mr-3" do %>
       <p>投稿する</p>
     <% end %>
   </div>
-  <div class = "row">
-    <% elsif current_user.following?(user) %>
-    <%= link_to "フォロー外す",  user_relationships_path(user), method: :delete, class: "btn btn-info btn-sm" %>
+  <div class = "row ">
+  <% elsif current_user.following?(user) %>
+    <%= link_to "フォロー外す",  user_relationships_path(user), method: :delete, class: "btn btn-info btn-sm ml-3 mt-2" %>
   <% else %>
-    <%= link_to "フォローする",  user_relationships_path(user), method: :post, class: "btn btn-success btn-sm" %>
+    <%= link_to "フォローする",  user_relationships_path(user), method: :post, class: "btn btn-success btn-sm ml-3 mt-2" %>
   <% end %>
   </div>

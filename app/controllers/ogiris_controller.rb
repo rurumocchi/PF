@@ -9,6 +9,7 @@ class OgirisController < ApplicationController
 
   def index
     @ogiris = Ogiri.all
+    @ogiris = Ogiri.all.order(params[:sort])
   end
 
   def create
@@ -24,6 +25,7 @@ class OgirisController < ApplicationController
 
   def show
     @ogiri = Ogiri.find(params[:id])
+    @ogiri_comment = OgiriComment.new
   end
 
   def destroy

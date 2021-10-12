@@ -55,7 +55,83 @@
 }
 
 .border {
-     border:solid 1px #4169e1;
-     padding:10px;
+    border: solid 1px #4169e1;
+    padding:10px;
 }
 
+.link {
+    text-decoration: none;
+    color: black ;
+}
+
+.answer-size {
+    margin-left: 50px;
+    width: 500px;
+    width: 75%;
+    font-size: 20px;
+    text-align: center;
+    word-break: break-all;
+}
+
+.border-info {
+    height: 580px;
+    width: 100%;
+    border:double 5px #4169e1;
+    padding-top: 10px;
+}
+
+.border-info-follow {
+    height: 640px;
+    width: 100%;
+    border:double 5px #4169e1;
+    padding: 10px;
+}
+
+.comment {
+    border:solid 1px #4169e1;
+    height: 10px;
+    width: 500px;
+    padding-left: 20px;
+    word-break: break-all;
+    margin: 4% 10%;
+}
+
+.introduction {
+    margin-top: 20px;
+    word-break: break-all;
+}
+
+.rate {
+    width: 200px;
+    text-align: center;
+}
+
+.comment_user {
+    width: 100px;
+}
+
+.favorite {
+
+  margin-right: 20px;
+}
+
+.like-btn {
+  font-size: 15px;
+  color: #808080;
+}
+
+.unlike-btn {
+  font-size: 15px;
+  color: #e54747;
+}
+
+.table {
+    border: solid 1.5px black;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.th {
+    width: 125px;
+    text-align: left;
+}

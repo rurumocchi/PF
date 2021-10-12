@@ -1,0 +1,16 @@
+<div class = "container px-5 px-sm-0">
+  <div class = "row">
+    <div class = "col-md-3 border-info-follow" style="margin-top:150px;">
+      <%= render 'users/info', user: @user %>
+        <div class = "row">
+          </% if current_user == @user %>
+            <%= link_to "いいねした投稿", favorites_user_path(@user),class:"btn btn-outline-secondary btn-block pt-3 mt-3 mr-3 ml-3" %>
+          </% end %>
+        </div>
+      </div>
+      <div class='col-md-8 offset-md-1' style="margin-top:120px;">
+        <h3 class = "mb-4">いいねした投稿一覧</h3>
+        <%= render partial: "ogiris/ogiri", collection: @favorite_ogiris %>
+      </div>
+  </div>
+</div>

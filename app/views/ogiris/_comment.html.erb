@@ -1,0 +1,54 @@
+<table>
+  <% @ogiri.ogiri_comments.each do |ogiri_comment| %>
+    <% ogiri_comment_user = ogiri_comment.user %>
+    <tr>
+      <td class = "comment_user">
+        <%= link_to user_path(ogiri_comment_user) do %>
+      		<%= attachment_image_tag ogiri_comment_user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %><br>
+      		<%= ogiri_comment_user.name %>
+    	   <% end %>
+      </td>
+      <td class = "comment"><%= ogiri_comment.comment %></td>
+      <td class = "rate">
+         <div id="rate_<%= ogiri_comment.id %>"></div>
+          <script>
+           $('#rate_<%= ogiri_comment.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= ogiri_comment.rate %>
+           });
+          </script>
+       </td>
+       <% if current_user == ogiri_comment_user %>
+      	<td><%= link_to 'Destroy', ogiri_ogiri_comment_path(ogiri_comment.ogiri_id, ogiri_comment.id), class: 'btn-sm btn-danger', method: :delete, remote: true %></td>
+    	<% end %>
+    </tr>
+  <% end %>
+</table>
+  <%= form_with model:[@ogiri,@ogiri_comment], local: true do |f| %>
+    <div class = "text-right mt-3">
+      <%= f.text_area :comment, size:"88x5" %><br>
+    </div>
+    <div id="star" class="form-group text-right">
+    <%= f.label :rate %>
+    <%= f.hidden_field :rate, class:"form-control" %>
+  </div>
+  <script>
+    $('#star').raty({
+      size     : 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn :  '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      scoreName: 'ogiri_comment[rate]',
+
+      half: true,
+    });
+  </script>
+    <div class = "text-right">
+      <%= f.submit '送信'%>
+    </div>
+  <% end %>
