@@ -14,4 +14,5 @@ before_action :authenticate_user!
     favorite.destroy
     redirect_to request.referer
   end
+
 end

@@ -21,6 +21,7 @@
   background-color:#deb887;
   height:120px;
 }
+/*タイトル（お手軽大喜利）*/
 .title{
   color: white;
   font-family: serif;
@@ -29,14 +30,15 @@
   border-radius: 20px;
   border: 10px double #ffffff;
 }
+/*ヘッダー二重囲み*/
 .border-header{
   border: 10px double #ffffff;
 }
-
+/*ヘッダー文字大きさ*/
 .nav-link{
  font-size: 30px;
 }
-
+/*新規登録・ログインタイトル*/
 .title-heading {
     color: white;
     font-family: serif;
@@ -47,23 +49,23 @@
     padding: 0.5em;
     border-radius: 20px;
   }
-
+/*登録ボタン*/
 .btn-entry{
   border:solid 1px #4169e1;
       color:#4169e1;
       background:#ffffff;
 }
-
+/*投稿枠線*/
 .border {
     border: solid 1px #4169e1;
     padding:10px;
 }
-
+/*リンクの色*/
 .link {
     text-decoration: none;
     color: black ;
 }
-
+/*回答の大きさ*/
 .answer-size {
     margin-left: 50px;
     width: 500px;
@@ -72,21 +74,21 @@
     text-align: center;
     word-break: break-all;
 }
-
+/*ユーザ情報*/
 .border-info {
     height: 580px;
     width: 100%;
     border:double 5px #4169e1;
     padding-top: 10px;
 }
-
+/*ユーザ情報（いいね）*/
 .border-info-follow {
     height: 640px;
     width: 100%;
     border:double 5px #4169e1;
     padding: 10px;
 }
-
+/*コメント投稿*/
 .comment {
     border:solid 1px #4169e1;
     height: 10px;
@@ -95,31 +97,30 @@
     word-break: break-all;
     margin: 4% 10%;
 }
-
+/*紹介説明*/
 .introduction {
     margin-top: 20px;
     word-break: break-all;
 }
-
+/*5段階評価*/
 .rate {
     width: 200px;
     text-align: center;
 }
-
+/*コメント投稿者*/
 .comment_user {
     width: 100px;
 }
-
+/*いいね位置*/
 .favorite {
-
   margin-right: 20px;
 }
-
+/*いいねボタン*/
 .like-btn {
   font-size: 15px;
   color: #808080;
 }
-
+/*いいね外すボタン*/
 .unlike-btn {
   font-size: 15px;
   color: #e54747;
@@ -130,7 +131,7 @@
     padding: 10px;
     margin-top: 10px;
 }
-
+/*見出し左詰め*/
 .th {
     width: 125px;
     text-align: left;

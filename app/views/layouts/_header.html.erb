@@ -12,7 +12,7 @@
           <% if user_signed_in? %>
             <li><%= link_to '一覧',ogiris_path,class: "nav-link border-header text-light mx-3"%></li>
             <li><%= link_to '投稿',new_ogiri_path,class: "nav-link border-header text-light mx-3"%></li>
-            <li></li>
+            <li><%= link_to "ランキング", favorite_rank_ogiris_path,class: "nav-link border-header text-light mx-3" %></li>
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: "nav-link border-header text-light mx-3 mr-5"  %></li>
           <% else %>
             <li><%= link_to ' Home',root_path,class: "nav-link border-header text-light mx-3"%></li>

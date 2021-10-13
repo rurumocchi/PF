@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @ogiris = @user.ogiris
+    @ogiris = @user.ogiris.all.order(created_at: :desc)
   end
 
   def edit
@@ -23,6 +23,8 @@ class UsersController < ApplicationController
   def favorites
     favorites = Favorite.where(user_id: @user.id).pluck(:ogiri_id)
     @favorite_ogiris = Ogiri.find(favorites)
+    #@ogiris = Ogiri.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+    #@favorite_ogiris = Ogiri.find(Like.group(:ogiri_id).order('created_at(ogiri_id) desc').pluck(:ogiri_id))
   end
 
   private

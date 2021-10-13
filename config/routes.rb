@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   end
 
   resources :ogiris, only: [:new, :index, :show, :create, :destroy] do
+    collection do
+      get :favorite_rank
+    end
     resource :favorites, only: [:create, :destroy]
     resources :ogiri_comments, only: [:create, :destroy]
   end

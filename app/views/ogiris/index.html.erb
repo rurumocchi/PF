@@ -5,7 +5,7 @@
     </div>
       <div class='col-md-8 offset-md-1'style="margin-top:150px;">
       <%= link_to "新しい順", ogiris_path(sort: "created_at DESC") %> |
-      </%= link_to "評価の高い順", ogiris_path(sort: "ogiri.favorite DESC") %>
+      </%= link_to "ランキング", favorite_rank_ogiri_path(@ogiri) %>
         <% @ogiris.each do |ogiri| %>
           <div class = "col-md-11 offset-md-1 mb-3 border">
             <div class = "mt-2">
@@ -31,6 +31,7 @@
               </div>
             </div>
             <div class="favorite-btn_<%= ogiri.id %> favorite">
+              <%= ogiri.created_at.strftime('%Y/%m/%d') %>
               いいね:<%= render "favorites/favorite-btn", ogiri: ogiri %>
             </div>
           </div>

@@ -8,8 +8,8 @@ class OgirisController < ApplicationController
   end
 
   def index
-    @ogiris = Ogiri.all
-    @ogiris = Ogiri.all.order(params[:sort])
+    @ogiris = Ogiri.all.order(created_at: :desc).order(params[:sort])
+    #@ogiris = Ogiri.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
   end
 
   def create
@@ -32,6 +32,10 @@ class OgirisController < ApplicationController
     @ogiri = Ogiri.find(params[:id])
     @ogiri.destroy
     redirect_to ogiris_path
+  end
+
+  def favorite_rank
+    @ogiris = Ogiri.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
   end
 
   private
