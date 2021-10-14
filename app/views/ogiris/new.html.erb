@@ -14,9 +14,14 @@
         <%= f.text_field :answer, class: "form-control answer" %>
       </div>
       <div class="form-group">
+        <%= f.label :category %>
+        <%= f.select :category, [['太郎'], ['二郎']], {}, { class: "user_class" } %>
+      </div>
+      <div class="form-group">
         <%= f.submit '投稿する', class: 'btn btn-secondary' %>
       </div>
     <% end %>
+    <%= link_to "a", search_category_path %>
     </div>
   </div>
 </div>

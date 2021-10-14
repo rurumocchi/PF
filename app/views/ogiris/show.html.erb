@@ -27,8 +27,9 @@
               <% end %>
           </div>
           <div class="favorite-btn_<%= @ogiri.id %> favorite">
-              <%= render "favorites/favorite-btn", ogiri: @ogiri %>いいね
-            </div>
+            <%= @ogiri.created_at.strftime('%Y/%m/%d') %>
+            いいね:<%= render "favorites/favorite-btn", ogiri: @ogiri %>
+          </div>
         </div>
         <div>
           <% if @ogiri.user == current_user %>

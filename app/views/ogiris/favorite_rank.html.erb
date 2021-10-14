@@ -1,6 +1,6 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
-    <div class = "col-md-3 border-info-follow" style="margin-top:150px;">
+    <div class = "col-md-3 border-info" style="margin-top:150px;">
       <%= render 'users/info', user: current_user %>
     </div>
     <div class='col-md-8 offset-md-1' style="margin-top:100px;">
@@ -29,6 +29,7 @@
           </div>
         </div>
         <div class="favorite-btn_<%= ogiri.id %> favorite">
+          <%= ogiri.created_at.strftime('%Y/%m/%d') %>
           いいね:<%= render "favorites/favorite-btn", ogiri: ogiri %>
         </div>
       </div>

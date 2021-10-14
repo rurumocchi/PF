@@ -1,9 +1,8 @@
 class CategoriesController < ApplicationController
 
-  def search
+  def search_category
+    @ogiri = Ogiri.new
+    @ogiris = Ogiri.search_category(params[:keyword])
   end
 
-  def search_category
-  end
-  
 end
