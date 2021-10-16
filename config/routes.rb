@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root :to => "homes#top"
   get "home/about" => "homes#about"
   get "/search" => "searches#search"
-  get "search_category" => "categories#search_category"
+  get "search_genre" => "categories#search_genre"
 
   resources :users, only: [:show, :edit, :update] do
     member do

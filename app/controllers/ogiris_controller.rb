@@ -41,7 +41,7 @@ class OgirisController < ApplicationController
   private
 
   def ogiri_params
-    params.require(:ogiri).permit(:answer, :image, :category)
+    params.require(:ogiri).permit(:answer, :image, :genre_name)
   end
 
   def ensure_correct_user

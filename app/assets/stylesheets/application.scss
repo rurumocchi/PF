@@ -76,14 +76,14 @@
 }
 /*ユーザ情報*/
 .border-info {
-    height: 580px;
+    height: 630px;
     width: 100%;
     border:double 5px #4169e1;
     padding-top: 10px;
 }
 /*ユーザ情報（いいね）*/
 .border-info-follow {
-    height: 640px;
+    height: 700px;
     width: 100%;
     border:double 5px #4169e1;
     padding: 10px;
@@ -113,7 +113,8 @@
 }
 /*いいね位置*/
 .favorite {
-  margin-right: 20px;
+  margin-left: 10px;
+
 }
 /*いいねボタン*/
 .like-btn {
@@ -135,4 +136,12 @@
 .th {
     width: 125px;
     text-align: left;
+}
+
+.name {
+    margin-left: 4px;
+}
+
+.search-form {
+    text-align: center;
 }
