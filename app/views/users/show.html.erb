@@ -3,12 +3,10 @@
     <div class = "col-md-3 border-info-follow" style="margin-top:150px;">
       <%= render 'users/info', user: @user %>
       <div class = "row">
-        </% if current_user == @user %>
           <%= link_to "いいねした投稿", favorites_user_path(@user),class:"btn btn-outline-secondary btn-block pt-3 mt-3 ml-3 mr-3" %>
-        </% end %>
       </div>
     </div>
-    <div class='col-md-8 offset-md-1' style="margin-top:150px;">
+    <div class='col-md-8 offset-md-1' style="margin-top:100px;">
       <% @ogiris.each do |ogiri| %>
         <div class = "border col-md-11 offset-md-1 mb-3">
           <div class = "mt-2">

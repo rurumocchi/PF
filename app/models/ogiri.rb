@@ -13,7 +13,7 @@ def favorited_by?(user)
 end
 
 def Ogiri.search_genre(keyword)
-    Ogiri.where("genre LIKE?", "%#{keyword}%")
+    Ogiri.where("genre_name LIKE?", "%#{keyword}%")
 end
 
 end

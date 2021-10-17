@@ -2,11 +2,10 @@
   <div class = "row">
     <div class = "col-md-3 border-info" style="margin-top:150px;">
       <%= render 'users/info', user: current_user %>
-
     </div>
-
     <div class='col-md-8 offset-md-1'style="margin-top:100px;">
-      <% @ogiris.each do |ogiri| %>
+      <h3 class = "mb-4"> 検索結果 : <%= @ogiri.genre_name %></h3>
+        <% @ogiris.each do |ogiri| %>
           <div class = "col-md-11 offset-md-1 mb-3 border">
             <div class = "mt-2">
               <%= link_to user_path(ogiri.user) do %>

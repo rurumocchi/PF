@@ -15,7 +15,7 @@
       </div>
       <div class="form-group">
         <%= f.label :category %>
-        <%= f.select :genre_name, [['写真で一言',1], ['画像でボケて',2], ['その他',3]], { include_blank: '選択してください'}, { string: "genre_name",class: "user_class" } %>
+        <%= f.select :genre_name, [['写真で一言'], ['画像でボケて'], ['その他']], { include_blank: '選択してください'}, { string: "genre_name",class: "user_class" } %>
       </div>
       <div class="form-group">
         <%= f.submit '投稿する', class: 'btn btn-secondary' %>
