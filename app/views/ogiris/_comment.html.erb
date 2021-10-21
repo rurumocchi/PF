@@ -9,7 +9,7 @@
       		<%= ogiri_comment_user.name %>
     	   <% end %>
       </td>
-      <td class = "comment"><%= ogiri_comment.comment %></td>
+      <td class = "comment", width="80%"><%= ogiri_comment.comment %></td>
       <td class = "rate">
          <div id="rate_<%= ogiri_comment.id %>"></div>
           <script>
@@ -30,6 +30,7 @@
     </tr>
   <% end %>
 </table>
+  <h6 class = "ml-5 mt-2">コメントする</h6>
   <%= form_with model:[@ogiri,@ogiri_comment], local: true do |f| %>
     <div class = "text-right mt-3">
       <%= f.text_area :comment, size:"88x5" %><br>

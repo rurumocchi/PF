@@ -1,44 +1,46 @@
-<div class = "container px-5 px-sm-0" style="margin-top: 80px;">
+<div class = "container px-5 px-sm-0">
   <div class = "row">
-    <div class = "col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <div class = "col-md-3 border-info" style="margin-top:150px;">
+      <%= render 'users/info', user: current_user %>
+    </div>
+    <div class = 'col-md-6 offset-md-1'style="margin-top:100px;">
     <h3 class = "mb-4">Follow Users</h3>
       <% if @users.exists? %>
       <% @users.each do |user| %>
-          <table class = "table">
+          <table class = "table table-bordered">
             <tr>
-              <th>
+              <th colspan="2">
                 <%= link_to user_path(user) do %>
                   <%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %>
                 <% end %>
               </th>
-            </tr>
             <tr>
-	            <th class = "th">name</th>
-	            <th>
+	            <th>name</th>
+	            <td>
 	              <%= link_to user_path(user) do %>
                  <%= user.name %>
                 <% end %>
-	            </th>
+	            </td>
             </tr>
             <tr>
               <th>follows</th>
-              <th>
+              <td>
                 <%= link_to user_followings_path(user) do %>
                  <%= user.followings.count %>
                 <% end %>
-              </th>
+              </td>
             </tr>
             <tr>
               <th>followers</th>
-              <th>
+              <td>
                 <%= link_to user_followers_path(user) do %>
                   <%= user.followers.count %>
                 <% end %>
-              </th>
+              </td>
             </tr>
             <tr>
               <th>introduction</th>
-	            <th class = "introduction ml-2"><%= user.introduction %></th>
+	            <td class = "introduction ml-2"><%= user.introduction %></td>
             </tr>
           </table>
         <% end %>

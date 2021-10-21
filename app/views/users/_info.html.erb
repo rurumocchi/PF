@@ -1,41 +1,45 @@
 <div class = "search-form">
     <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <%= f.label '検索box' %>
-      <%= f.text_field 'search[value]'  %>
-      <%= f.select 'search[model]', options_for_select({ "User" => "user", "Ogiri" => "ogiri" }) %>
-      <%= f.select 'search[how]', options_for_select({ "完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }) %>
-      <%= f.submit '検索' %>
+      <h6 class = "mr-3">ユーザ検索</h6>
+      <%= f.text_field 'search', class: "mt-2" %>
+      <%= f.submit '検索',name: nil %>
     <% end %>
   </div>
-  <table class = "table">
-    <tr><th><%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></th></tr>
+  <table class = "table table-bordered">
     <tr>
-	    <th class = "th">name</th>
-	    <th>
+      <td colspan="2">
+        <%= link_to user_path(user) do %>
+          <%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+	    <th>name</th>
+	    <td>
 	      <%= link_to user_path(user) do %>
          <%= user.name %>
         <% end %>
-	    </th>
+	    </td>
     </tr>
     <tr>
       <th>follows</th>
-      <th>
+      <td>
         <%= link_to user_followings_path(user) do %>
          <%= user.followings.count %>
         <% end %>
-      </th>
+      </td>
     </tr>
     <tr>
       <th>followers</th>
-      <th>
+      <td>
         <%= link_to user_followers_path(user) do %>
           <%= user.followers.count %>
         <% end %>
-      </th>
+      </td>
     </tr>
     <tr>
       <th>introduction</th>
-	    <th class = "introduction ml-2"><%= user.introduction %></th>
+	    <td class = "introduction ml-2"><%= user.introduction %></td>
     </tr>
   </table>
 
@@ -44,14 +48,41 @@
     <%= link_to edit_user_path(user), class:"btn btn-outline-secondary btn-block pt-3 m-3 " do %>
       <i class="fas fa-user-cog"><p class = "mt-2">編集する</p></i>
     <% end %>
-    <%= link_to new_ogiri_path(@ogiri), class:"btn btn-outline-secondary btn-block text-center pt-3 ml-3 mr-3" do %>
+    <%= link_to new_ogiri_path(@ogiri), class:"btn btn-outline-secondary btn-block text-center pt-3 ml-3 mr-3 mb-3" do %>
       <p>投稿する</p>
     <% end %>
   </div>
   <div class = "row ">
   <% elsif current_user.following?(user) %>
-    <%= link_to "フォロー外す",  user_relationships_path(user), method: :delete, class: "btn btn-info btn-sm ml-3 mt-2" %>
+    <%= link_to "フォロー外す",  user_relationships_path(user), method: :delete, class: "btn btn-info btn-sm ml-3 mt-2 mb-3" %>
   <% else %>
-    <%= link_to "フォローする",  user_relationships_path(user), method: :post, class: "btn btn-success btn-sm ml-3 mt-2" %>
+    <%= link_to "フォローする",  user_relationships_path(user), method: :post, class: "btn btn-success btn-sm ml-3 mt-2 mb-3" %>
   <% end %>
   </div>
+  <div class = "row">
+    <%= link_to "いいねした投稿", favorites_user_path(user),class:"btn btn-outline-secondary btn-block pt-3 ml-3 mr-3" %>
+  </div>
+  <table class="table table-bordered mt-4">
+        <thead>
+          <tr>
+            <th>ジャンル検索</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <%= link_to "写真で一言", search_genre_path('keyword': "写真で一言", 'search[how]': "match") %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= link_to "画像でボケて", search_genre_path('keyword': "画像でボケて", 'search[how]': "match") %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= link_to "その他", search_genre_path('keyword': "その他", 'search[how]': "match") %>
+            </td>
+          </tr>
+        </tbody>
+      </table>

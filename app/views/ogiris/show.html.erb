@@ -28,12 +28,13 @@
           </div>
           <div class="favorite-btn_<%= @ogiri.id %> favorite">
             <%= @ogiri.created_at.strftime('%Y/%m/%d') %>
-            いいね:<%= render "favorites/favorite-btn", ogiri: @ogiri %>
+            <%= link_to @ogiri.genre_name, search_genre_path(keyword: @ogiri.genre_name),class: "mr-2 ml-2" %>
+            いいね<%= render "favorites/favorite-btn", ogiri: @ogiri %>
           </div>
         </div>
         <div>
           <% if @ogiri.user == current_user %>
-            <%= link_to 'Destroy', ogiri_path(@ogiri), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
+            <%= link_to 'Destroy', ogiri_path(@ogiri), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger mt-2"%>
           <% end %>
         </div>
       </div>

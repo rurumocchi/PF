@@ -3,7 +3,8 @@
     <div class = "col-md-3 border-info" style="margin-top:150px;">
       <%= render 'users/info', user: current_user %>
     </div>
-    <div class = "col-md-8 offset-md-1" style="margin-top:150px;">
+    <div class = "col-md-8 offset-md-1" style="margin-top:100px;">
+      <h3 class = "mb-4">新規投稿</h3>
       <%= form_with model:@ogiri, local:true do |f| %>
       <div class = "form-group">
         <%= f.label :image %>

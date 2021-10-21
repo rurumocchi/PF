@@ -2,56 +2,9 @@ class SearchesController < ApplicationController
   before_action :authenticate_user!
 
   def search
-    @model = params["search"]["model"]
-    @value = params["search"]["value"]
-    @how = params["search"]["how"]
-    @datas = search_for(@how, @model, @value)
-  end
-  private
-
-  def perfect(model, value)
-    if model == 'user'
-      User.where(name: value)
-    elsif model == 'ogiri'
-      Ogiri.where(genre_name: value)
-    end
-  end
-
-  def forward(model, value)
-    if model == 'User'
-      User.where("name LIKE ?", "#{value}%")
-    elsif model == 'ogiri'
-      Ogiri.where("genre_name LIKE ?", "#{value}%")
-    end
-  end
-
-  def backward(model, value)
-    if model == 'user'
-      User.where("name LIKE ?", "%#{value}")
-    elsif model == 'book'
-      Ogiri.where("genre_name LIKE ?", "%#{value}")
-    end
-  end
-
-  def partical(model, value)
-    if model == 'user'
-      User.where("name LIKE ?", "%#{value}%")
-    elsif model == 'book'
-      Ogiri.where("genre_name LIKE ?", "%#{value}%")
-    end
-  end
-
-  def search_for(how, model, value)
-    case how
-    when 'perfect'
-      perfect(model, value)
-    when 'forward'
-      forward(model, value)
-    when 'backward'
-      backward(model, value)
-    when 'partical'
-      partical(model, value)
-    end
+    @users = User.all
+    @users = @users.where('name LIKE ?', "%#{params[:search]}%") if params[:search].present?
+    @search = params["search"]
   end
 
 end
