@@ -23,4 +23,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :ogiri_comments, only: [:create, :destroy]
   end
+
+  resources :ogiri_odais, only: [:new, :index, :show, :create, :destroy]
+
 end

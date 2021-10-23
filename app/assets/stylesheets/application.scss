@@ -25,7 +25,7 @@
 .title{
   color: white;
   font-family: serif;
-  width: 300px;
+  width: 250px;
   text-align: center;
   border-radius: 20px;
   border: 10px double #ffffff;
@@ -81,22 +81,15 @@
     border:double 5px #4169e1;
     padding-top: 10px;
 }
-/*ユーザ情報（いいね）*/
-.border-info-follow {
-    height: 80%;
-    width: 100%;
-    border:double 5px #4169e1;
-    padding: 10px;
-}
 /*コメント投稿*/
 .comment {
-    width: 30%;
-    height: 10px;
-    box-sizing: border-box;
     border:solid 1px #4169e1;
-    padding-left: 20px;
+    box-sizing: content-box;
+    width: 50%;
+    height: 5%;
+    padding: 0px 20px;
     word-break: break-all;
-    margin: 4% 10%;
+    margin-bottom: 10px;
 }
 /*紹介説明*/
 .introduction {
@@ -136,6 +129,11 @@
     width: 100%;
 }
 
+.comment_table {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
 .name {
     margin-left: 4px;
 }
@@ -145,11 +143,38 @@
     margin-top: 20px;
 }
 
-
-th{
-  width: 30%;
+.th {
+  width: 20%;
 }
 
-td{
+.td {
   width: 70%;
+}
+
+.ogiri-odai-image {
+  position: relative;
+  width: 410px;
+  height: 200px;
+  margin: 0px auto 0;
+}
+
+.ogiri-odai-image img {
+   width: 100%;
+   height: 100%;
+   text-align: center;
+}
+
+.ogiri-odai-image h5{
+    color:  #FA8072;
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    right: 10%;
+    left: 10%;
+    word-break: break-all;
+
+
+}
+strong {
+  color:  #FA8072;
 }

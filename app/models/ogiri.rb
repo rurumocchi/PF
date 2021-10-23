@@ -6,7 +6,10 @@ class Ogiri < ApplicationRecord
 	has_many :ogiri_comments, dependent: :destroy
 
   validates :answer, presence: true, length: { maximum: 200 }
+  validates :ogiri_odai, length: { maximum: 75 }
   attachment :image
+
+  enum ogiri_select: { select_image: 0, select_ogiri: 1}
 
 def favorited_by?(user)
 	favorites.where(user_id: user.id).exists?

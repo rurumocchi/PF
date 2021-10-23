@@ -1,0 +1,2 @@
+module OgiriOdaisHelper
+end

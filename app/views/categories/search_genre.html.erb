@@ -1,41 +1,11 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
-    <div class = "col-md-3 border-info" style="margin-top:150px;">
+    <div class = "col-md-3 border-info" style="margin-top:100px;">
       <%= render 'users/info', user: current_user %>
     </div>
     <div class='col-md-8 offset-md-1'style="margin-top:100px;">
       <h3 class = "mb-4"> 検索結果一覧</h3>
-        <% @ogiris.each do |ogiri| %>
-          <div class = "col-md-11 offset-md-1 mb-3 border">
-            <div class = "mt-2">
-              <%= link_to user_path(ogiri.user) do %>
-                <%= attachment_image_tag(ogiri.user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %>
-              <% end %>
-            </div>
-            <div class = "name">
-              <%= link_to user_path(ogiri.user) do %>
-               <%= ogiri.user.name %>
-              <% end %>
-            </div>
-            <div class = "text-center">
-              <a class = "oguri-image">
-                <%= link_to ogiri_path(ogiri), class: "link" do %>
-                  <%= attachment_image_tag(ogiri, :image, :fill, 400, 200, fallback: "no_image.jpg") %>
-                <% end %>
-              </a>
-              <div>
-                <%= link_to ogiri_path(ogiri), class: "link" do %>
-                  <h5 class = "answer-size mt-2">解答：<%= ogiri.answer %></h5>
-                <% end %>
-              </div>
-            </div>
-            <div class="favorite-btn_<%= ogiri.id %> favorite">
-              <%= ogiri.created_at.strftime('%Y/%m/%d') %>
-              <%= link_to ogiri.genre_name, search_genre_path(keyword: ogiri.genre_name),class: "mr-2 ml-2" %>
-              いいね<%= render "favorites/favorite-btn", ogiri: ogiri %>
-            </div>
-          </div>
-        <% end %>
+        <%= render partial: "ogiris/ogiri", collection: @ogiris %>
     </div>
   </div>
 </div>

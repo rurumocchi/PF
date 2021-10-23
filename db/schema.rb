@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_14_170042) do
+ActiveRecord::Schema.define(version: 2021_10_23_050101) do
 
   create_table "categories", force: :cascade do |t|
     t.string "category"
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(version: 2021_10_14_170042) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "ogiri_odais", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "odai_image_id"
+    t.integer "ogiri_odai_select", default: 0
+    t.text "odai_text"
+    t.string "genre_name"
+    t.float "rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "ogiris", force: :cascade do |t|
     t.integer "user_id"
     t.integer "category_id"
@@ -43,6 +54,8 @@ ActiveRecord::Schema.define(version: 2021_10_14_170042) do
     t.string "image_id"
     t.integer "genre"
     t.string "genre_name"
+    t.text "ogiri_odai"
+    t.integer "ogiri_select", default: 0
   end
 
   create_table "relationships", force: :cascade do |t|

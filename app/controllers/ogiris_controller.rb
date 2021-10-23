@@ -14,6 +14,11 @@ class OgirisController < ApplicationController
 
   def create
     @ogiri = Ogiri.new(ogiri_params)
+    if params[:ogiri][:ogiri_select] == "select_image"
+      @ogiri.ogiri_select = params[:image]
+    else params[:ogiri][:ogiri_select] == "select_ogiri"
+      @ogiri.ogiri_select = params[:ogiri_odai]
+    end
     @ogiri.user_id = current_user.id
     if @ogiri.save!
      redirect_to ogiris_path
@@ -41,7 +46,7 @@ class OgirisController < ApplicationController
   private
 
   def ogiri_params
-    params.require(:ogiri).permit(:answer, :image, :genre_name)
+    params.require(:ogiri).permit(:answer,  :genre_name, :ogiri_select, :ogiri_odai, :image)
   end
 
   def ensure_correct_user

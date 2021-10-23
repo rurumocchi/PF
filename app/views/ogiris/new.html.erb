@@ -1,14 +1,21 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
-    <div class = "col-md-3 border-info" style="margin-top:150px;">
+    <div class = "col-md-3 border-info" style="margin-top:100px;">
       <%= render 'users/info', user: current_user %>
     </div>
     <div class = "col-md-8 offset-md-1" style="margin-top:100px;">
-      <h3 class = "mb-4">新規投稿</h3>
+      <h3>新規大喜利投稿</h3>
       <%= form_with model:@ogiri, local:true do |f| %>
+      <h5 class = "mb-4">※画像かお題のどちらかで投稿してください。</h5>
       <div class = "form-group">
-        <%= f.label :image %>
+        <%= f.radio_button :ogiri_select, "select_image", checked: true %>
+        <%= f.label :"画像" %>
         <%= f.attachment_field :image, class: "form-control-file image" %>
+      </div>
+      <div class = "form-group">
+        <%= f.radio_button :ogiri_select, "select_ogiri" %>
+        <%= f.label :"お題" %>
+        <%= f.text_field :ogiri_odai, class: "form-control ogiri_odai" %>
       </div>
       <div class = "form-group">
         <%= f.label :answer %>
@@ -16,7 +23,7 @@
       </div>
       <div class="form-group">
         <%= f.label :category %>
-        <%= f.select :genre_name, [['写真で一言'], ['画像でボケて'], ['その他']], { include_blank: '選択してください'}, { string: "genre_name",class: "user_class" } %>
+        <%= f.select :genre_name, [['写真で一言'], ['画像でボケて'],['お題で一言'], ['その他']], { include_blank: '選択してください'}, { string: "genre_name",class: "user_class" } %>
       </div>
       <div class="form-group">
         <%= f.submit '投稿する', class: 'btn btn-secondary' %>

@@ -1,4 +1,4 @@
-<table>
+<table class = "comment_table">
   <% @ogiri.ogiri_comments.each do |ogiri_comment| %>
     <% ogiri_comment_user = ogiri_comment.user %>
     <tr>
@@ -9,7 +9,7 @@
       		<%= ogiri_comment_user.name %>
     	   <% end %>
       </td>
-      <td class = "comment", width="80%"><%= ogiri_comment.comment %></td>
+      <td class = "comment"><%= ogiri_comment.comment %></td>
       <td class = "rate">
          <div id="rate_<%= ogiri_comment.id %>"></div>
           <script>
@@ -25,7 +25,7 @@
           </script>
        </td>
        <% if current_user == ogiri_comment_user %>
-      	<td><%= link_to 'Destroy', ogiri_ogiri_comment_path(ogiri_comment.ogiri_id, ogiri_comment.id), class: 'btn-sm btn-danger', method: :delete, remote: true %></td>
+      	<td><%= link_to 'Destroy', ogiri_ogiri_comment_path(ogiri_comment.ogiri_id, ogiri_comment.id), class: 'btn-sm btn-danger', method: :delete, data: { confirm: '本当に消しますか？' }, remote: true %></td>
     	<% end %>
     </tr>
   <% end %>
@@ -33,7 +33,7 @@
   <h6 class = "ml-5 mt-2">コメントする</h6>
   <%= form_with model:[@ogiri,@ogiri_comment], local: true do |f| %>
     <div class = "text-right mt-3">
-      <%= f.text_area :comment, size:"88x5" %><br>
+      <%= f.text_area :comment, size:"88x5" , placeholder: 'コメントをここに' %><br>
     </div>
     <div id="star" class="form-group text-right">
     <%= f.label :rate %>
