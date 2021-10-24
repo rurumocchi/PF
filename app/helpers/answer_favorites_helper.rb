@@ -1,0 +1,2 @@
+module AnswerFavoritesHelper
+end

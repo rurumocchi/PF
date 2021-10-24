@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_23_050101) do
+ActiveRecord::Schema.define(version: 2021_10_24_032235) do
+
+  create_table "answer_favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "ogiri_answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "category"
@@ -21,6 +28,21 @@ ActiveRecord::Schema.define(version: 2021_10_23_050101) do
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "ogiri_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "odai_favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "ogiri_odai_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ogiri_answers", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "ogiri_odai_id"
+    t.string "ogiri_answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

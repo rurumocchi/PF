@@ -1,0 +1,2 @@
+class AnswerFavorite < ApplicationRecord
+end

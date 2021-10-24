@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @ogiris = @user.ogiris.all.order(created_at: :desc)
+    #@ogiri_odais = @user.ogiri_odais.all
   end
 
   def edit

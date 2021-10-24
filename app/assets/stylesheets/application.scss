@@ -58,7 +58,7 @@
 /*投稿枠線*/
 .border {
     border: solid 1px #4169e1;
-    padding:10px;
+    padding: 10px;
 }
 /*リンクの色*/
 .link {
@@ -67,7 +67,8 @@
 }
 /*回答の大きさ*/
 .answer-size {
-    margin-left: 50px;
+    font-family: 'Quicksand', sans-serif;
+    margin-left: 70px;
     width: 500px;
     width: 75%;
     font-size: 20px;
@@ -104,6 +105,7 @@
 /*コメント投稿者*/
 .comment_user {
     width: 100px;
+    text-align: center;
 }
 /*いいね位置*/
 .favorite {
@@ -121,22 +123,19 @@
   font-size: 15px;
   color: #e54747;
 }
-
+/*ユーザ情報*/
 .table {
     border: solid 1.5px black;
     padding: 10px;
     margin-top: 10px;
     width: 100%;
 }
-
+/*コメントテーブル*/
 .comment_table {
   width: 100%;
   margin-bottom: 10px;
 }
 
-.name {
-    margin-left: 4px;
-}
 /*検索box*/
 .search-form {
     text-align: center;
@@ -150,22 +149,24 @@
 .td {
   width: 70%;
 }
-
+/*大喜利お題フレーム*/
 .ogiri-odai-image {
   position: relative;
   width: 410px;
-  height: 200px;
+  height: 150px;
   margin: 0px auto 0;
 }
-
+/*大喜利お題画像詳細*/
 .ogiri-odai-image img {
    width: 100%;
    height: 100%;
    text-align: center;
 }
-
-.ogiri-odai-image h5{
+/*大喜利お題投稿お題*/
+.ogiri-odai-image p{
     color:  #FA8072;
+    font-size: 18px;
+    font-family: 'Quicksand', sans-serif;
     position: absolute;
     text-align: center;
     top: 40%;
@@ -176,5 +177,10 @@
 
 }
 strong {
-  color:  #FA8072;
+   color:  #FA8072;
+}
+/*詳細ページの枠*/
+.border-show {
+   border: dotted 3px #4169e1;
+   padding: 10px;
 }

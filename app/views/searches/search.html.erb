@@ -18,41 +18,41 @@
       <div class = 'col-md-6 offset-md-1'style="margin-top:100px;">
         <h3 class = "mb-4"> 検索結果 : <%= @search %></h3>
           <% @users.each do |user| %>
-            <table class = "table">
+            <table class = "table table-bordered">
                 <tr>
-                  <th>
+                  <td colspan="2">
                     <%= link_to user_path(user) do %>
                       <%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %>
                     <% end %>
-                  </th>
+                  </td>
                 </tr>
                 <tr>
-	                <th>name</th>
-	                <th>
+	                <th class = "th">name</th>
+	                <td class = "td">
 	                  <%= link_to user_path(user) do %>
                      <%= user.name %>
                     <% end %>
-	                </th>
+	                </td>
                 </tr>
                 <tr>
-                  <th>follows</th>
-                  <th>
+                  <th class = "th">follows</th>
+                  <td class = "td">
                     <%= link_to user_followings_path(user) do %>
                      <%= user.followings.count %>
                     <% end %>
-                  </th>
+                  </td>
                 </tr>
                 <tr>
-                  <th>followers</th>
-                  <th>
+                  <th class = "th">followers</th>
+                  <td class = "td">
                     <%= link_to user_followers_path(user) do %>
                       <%= user.followers.count %>
                     <% end %>
-                  </th>
+                  </td>
                 </tr>
                 <tr>
-                  <th>introduction</th>
-	                <th class = "introduction ml-2"><%= user.introduction %></th>
+                  <th class = "th introduction">introduction</th>
+	                <td class = "introduction ml-2"><%= user.introduction %></td>
                 </tr>
               </table>
           <% end %>

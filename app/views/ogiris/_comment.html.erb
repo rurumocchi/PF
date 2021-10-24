@@ -33,7 +33,7 @@
   <h6 class = "ml-5 mt-2">コメントする</h6>
   <%= form_with model:[@ogiri,@ogiri_comment], local: true do |f| %>
     <div class = "text-right mt-3">
-      <%= f.text_area :comment, size:"88x5" , placeholder: 'コメントをここに' %><br>
+      <%= f.text_area :comment, size:"88x2" , placeholder: 'コメントをここに' %><br>
     </div>
     <div id="star" class="form-group text-right">
     <%= f.label :rate %>

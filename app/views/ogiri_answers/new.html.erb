@@ -1,14 +1,17 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
     <div class = "col-md-3 border-info" style="margin-top:100px;">
-      <%= render 'users/info', user: @ogiri_odai.user %>
+      <%= render 'users/info', user: current_user %>
     </div>
-    <div class='col-md-8 offset-md-1' style="margin-top:100px;">
-      <div class = "border-show col-md-11 offset-md-1 mb-3">
+    <div class = "col-md-8 offset-md-1" style="margin-top:100px;">
+      <div class = "border col-md-11 offset-md-1 mb-3">
         <div class = "mt-2">
-          <%= "出題者" %></br>
           <%= link_to user_path(@ogiri_odai.user) do %>
             <%= attachment_image_tag(@ogiri_odai.user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to user_path(@ogiri_odai.user) do %>
             <%= @ogiri_odai.user.name %>
           <% end %>
         </div>
@@ -16,12 +19,12 @@
           <div class = "text-center">
             <a class = "ogiri-image">
               <%= link_to ogiri_odai_path(@ogiri_odai), class: "link" do %>
-                <%= attachment_image_tag(@ogiri_odai, :odai_image, :fill, 410, 150) %>
+                <%= attachment_image_tag(@ogiri_odai, :odai_image, :fill, 410, 200) %>
               <% end %>
             </a>
           </div>
         <% end %>
-        <% if @ogiri_odai.odai_text.present? %>
+         <% if @ogiri_odai.odai_text.present? %>
           <div class = "text-center">
             <div class = "ogiri-odai-image">
               <%= link_to ogiri_odai_path(@ogiri_odai), class: "link" do %>
@@ -35,15 +38,16 @@
           <%= @ogiri_odai.created_at.strftime('%Y/%m/%d') %>
           <%= link_to @ogiri_odai.genre_name, search_genre_path(keyword: @ogiri_odai.genre_name),class: "mr-2 ml-2" %>
         </div>
-        <div>
-          <%= link_to '回答する', new_ogiri_odai_ogiri_answer_path(@ogiri_odai), class: "btn btn-sm btn-success mt-2"%>
-          <% if @ogiri_odai.user == current_user %>
-            <%= link_to 'Destroy', ogiri_odai_path(@ogiri_odai), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger mt-2"%>
-          <% end %>
-        </div>
       </div>
-      <h3 class = "mt-3 mb-4"> 回答一覧</h3>
-      <%= render 'ogiri_odais/answer', ogiri_odai: @ogiri_odai,ogiri_answer: @ogiri_answer %>
+      <h3 class = "m-4">お題を回答する</h3>
+      <%= form_with model:[@ogiri_odai,@ogiri_answer], local: true do |f| %>
+        <div class = "text-center mt-3">
+          <%= f.text_area :ogiri_answer, size:"70x2" , placeholder: '回答をここに' %><br>
+        </div>
+        <div class = "text-right mt-2 mr-5">
+          <%= f.submit '回答する'%>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

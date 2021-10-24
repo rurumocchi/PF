@@ -1,0 +1,2 @@
+class OdaiFavorite < ApplicationRecord
+end
