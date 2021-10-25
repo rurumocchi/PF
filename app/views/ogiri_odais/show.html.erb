@@ -31,9 +31,10 @@
             </div>
           </div>
         <% end %>
-        <div class = "favorite">
+        <div class = "odai_favorite-btn_<%= @ogiri_odai.id %> favorite mt-2">
           <%= @ogiri_odai.created_at.strftime('%Y/%m/%d') %>
           <%= link_to @ogiri_odai.genre_name, search_genre_path(keyword: @ogiri_odai.genre_name),class: "mr-2 ml-2" %>
+          いいね <%= render "odai_favorites/odai_favorite-btn", ogiri_odai: @ogiri_odai %>
         </div>
         <div>
           <%= link_to '回答する', new_ogiri_odai_ogiri_answer_path(@ogiri_odai), class: "btn btn-sm btn-success mt-2"%>

@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @ogiris = @user.ogiris.all.order(created_at: :desc)
-    #@ogiri_odais = @user.ogiri_odais.all
   end
 
   def edit
@@ -21,6 +20,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def odai_favorites
+    @user = User.find(params[:id])
+    #@ogiri_odais = @user.ogiri_odais.all
+    odai_favorites = OdaiFavorite.where(user_id: @user.id).pluck(:ogiri_odai_id)
+    @favorite_odais = OgiriOdai.find(odai_favorites)
+  end
+
   def favorites
     favorites = Favorite.where(user_id: @user.id).pluck(:ogiri_id)
     @favorite_ogiris = Ogiri.find(favorites)
@@ -28,6 +34,9 @@ class UsersController < ApplicationController
     #@favorite_ogiris = Ogiri.find(Like.group(:ogiri_id).order('created_at(ogiri_id) desc').pluck(:ogiri_id))
   end
 
+  def answer_favorites
+    
+  end
   private
 
   def user_params

@@ -1,0 +1,46 @@
+<div class = "container px-5 px-sm-0">
+  <div class = "row">
+    <div class = "col-md-3 border-info" style="margin-top:100px;">
+      <%= render 'users/info', user: @user %>
+    </div>
+    <div class='col-md-8 offset-md-1' style="margin-top:80px;">
+      <%= link_to 'いいねした投稿一覧', favorites_user_path(@user) %>
+      <h3 class = "mb-4">いいねしたお題一覧</h3>
+        <% @favorite_odais.each do |favorite_odai| %>
+        <div class = "border col-md-11 offset-md-1 mb-3">
+          <div class = "mt-2">
+            <%= "出題者" %></br>
+            <%= link_to user_path(favorite_odai.user) do %>
+              <%= attachment_image_tag(favorite_odai.user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %>
+              <%= favorite_odai.user.name %>
+            <% end %>
+          </div>
+          <% if favorite_odai.odai_image.present? %>
+            <div class = "text-center">
+              <a class = "ogiri-image">
+                <%= link_to ogiri_odai_path(favorite_odai), class: "link" do %>
+                  <%= attachment_image_tag(favorite_odai, :odai_image, :fill, 410, 150) %>
+                <% end %>
+              </a>
+            </div>
+          <% end %>
+          <% if favorite_odai.odai_text.present? %>
+            <div class = "text-center">
+              <div class = "ogiri-odai-image">
+                <%= link_to ogiri_odai_path(favorite_odai), class: "link" do %>
+                  <%= image_tag "ogiri.answer.png" %>
+                  <p><%= favorite_odai.odai_text %></p>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+          <div class = "odai_favorite-btn_<%= favorite_odai.id %> favorite mt-2">
+            <%= favorite_odai.created_at.strftime('%Y/%m/%d') %>
+            <%= link_to favorite_odai.genre_name, search_genre_path(keyword: favorite_odai.genre_name),class: "mr-2 ml-2" %>
+            
+          </div>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>

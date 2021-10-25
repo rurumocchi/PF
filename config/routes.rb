@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
     member do
       get :favorites
+      get :odai_favorites
+      get :answer_favorites
     end
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
