@@ -8,13 +8,14 @@ class Ogiri < ApplicationRecord
   validates :answer, presence: true, length: { maximum: 200 }
   validates :ogiri_odai, length: { maximum: 75 }
   attachment :image
-
+  
+  # 大喜利投稿ラジオボタン
   enum ogiri_select: { select_image: 0, select_ogiri: 1}
 
 def favorited_by?(user)
 	favorites.where(user_id: user.id).exists?
 end
-
+# 検索用のメソッド定義(部分一致のみ)
 def Ogiri.search_genre(keyword)
     Ogiri.where("genre_name LIKE?", "%#{keyword}%")
 end

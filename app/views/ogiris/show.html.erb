@@ -1,6 +1,7 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
     <div class = "col-md-3 border-info" style="margin-top:100px;">
+      <!--大喜利を投稿したユーザ情報-->
       <%= render 'users/info', user: @ogiri.user %>
     </div>
     <div class='col-md-8 offset-md-1' style="margin-top:80px;">
@@ -12,11 +13,13 @@
       </div>
       <div class = "border-show col-md-11 offset-md-1 mb-3">
         <div class = "mt-2">
+          <!--投稿したユーザ情報-->
           <%= link_to user_path(@ogiri.user) do %>
             <%= attachment_image_tag(@ogiri.user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %>
             <%= @ogiri.user.name %>
           <% end %>
         </div>
+        <!--もし画像での大喜利を投稿していたら、投稿した画像と回答を画面に映す-->
         <% if @ogiri.image.present? %>
           <div class = "text-center">
             <a class = "ogiri-image">
@@ -26,38 +29,44 @@
             </a>
             <div>
               <%= link_to ogiri_path(@ogiri), class: "link" do %>
-                <h5 class = "answer-size mt-3">解答：<%= @ogiri.answer %></h5>
+                <h5 class = "answer-size mt-3">回答：<%= @ogiri.answer %></h5>
               <% end %>
             </div>
           </div>
         <% end %>
+        <!--もしお題での大喜利を投稿していたら、投稿した文と回答を画面に映す-->
         <% if @ogiri.ogiri_odai.present? %>
           <div class = "text-center">
             <div class = "ogiri-odai-image">
               <%= link_to ogiri_path(@ogiri), class: "link" do %>
+                <!--背景の画像と共に、投稿したお題を画面に映す-->
                 <%= image_tag "ogiri2.png" %>
                 <p><%= @ogiri.ogiri_odai %></p>
               <% end %>
             </div>
             <div>
               <%= link_to ogiri_path(@ogiri), class: "link" do %>
-                 <h5 class = "answer-size mt-3">解答：<%= @ogiri.answer %></h5>
+                 <h5 class = "answer-size mt-3">回答：<%= @ogiri.answer %></h5>
               <% end %>
              </div>
            </div>
         <% end %>
           <div class="favorite-btn_<%= @ogiri.id %> favorite">
+            <!--投稿日-->
             <%= @ogiri.created_at.strftime('%Y/%m/%d') %>
+            <!--投稿したジャンル検索のリンク-->
             <%= link_to @ogiri.genre_name, search_genre_path(keyword: @ogiri.genre_name),class: "mr-2 ml-2" %>
+             <!--投稿した大喜利詳細へのリンク-->
             いいね<%= render "favorites/favorite-btn", ogiri: @ogiri %>
-            
           </div>
         <div>
+          <!--もし大喜利を投稿したユーザが現在ログインしているユーザであれば、削除ボタンをつける-->
           <% if @ogiri.user == current_user %>
             <%= link_to 'Destroy', ogiri_path(@ogiri), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger mt-2"%>
           <% end %>
         </div>
       </div>
+      <!--コメント機能-->
       <%= render 'ogiris/comment', ogiri: @ogiri,ogiri_comment: @ogiri_comment %>
     </div>
   </div>

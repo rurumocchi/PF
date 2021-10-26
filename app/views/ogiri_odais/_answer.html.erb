@@ -10,6 +10,7 @@
          <%= ogiri_answer_user.name %>
       <% end %>
     </div>
+    <!--もし画像でのお題を投稿していたら、投稿したお題を画面に映す-->
     <% if ogiri_odai.odai_image.present? %>
       <div class = "text-center">
         <a class = "ogiri-image">
@@ -18,24 +19,28 @@
           <% end %>
         </a>
         <div>
+          <!--お題の回答を画面に映す-->
           <%= link_to ogiri_odai_ogiri_answer_path(ogiri_answer), class: "link" do %>
-            <h5 class = "answer-size mt-3">解答：<%= ogiri_answer.ogiri_answer %></h5>
+            <h5 class = "answer-size mt-3">回答：<%= ogiri_answer.ogiri_answer %></h5>
           <% end %>
         </div>
       </div>
     <% end %>
+    <!--もし文でのお題を投稿していたら、投稿したお題を画面に映す-->
     <% if ogiri_odai.odai_text.present? %>
       <div class = "text-center">
         <div class = "ogiri-odai-image">
           <%= link_to ogiri_odai_path(ogiri_odai), class: "link" do %>
+            <!--背景の画像と共に、投稿したお題を画面に映す-->
             <%= image_tag "ogiri.answer.png" %>
             <p><%= ogiri_odai.odai_text %></p>
           <% end %>
         </div>
         <div>
           <div>
+            <!--お題の回答を画面に映す-->
             <%= link_to ogiri_odai_ogiri_answer_path(ogiri_answer), class: "link" do %>
-              <h5 class = "answer-size mt-3">解答：<%= ogiri_answer.ogiri_answer %></h5>
+              <h5 class = "answer-size mt-3">回答：<%= ogiri_answer.ogiri_answer %></h5>
             <% end %>
           </div>
         </div>
@@ -46,6 +51,7 @@
       いいね <%= render "answer_favorites/answer_favorite-btn", ogiri_answer: ogiri_answer %>
     </div>
     <div>
+      <!--もしお題を回答したユーザがログインしているユーザであれば、削除ボタンをつける-->
       <% if ogiri_answer.user == current_user %>
         <%= link_to 'Destroy',  ogiri_odai_ogiri_answer_path(ogiri_answer.ogiri_odai_id, ogiri_answer.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger mt-2"%>
       <% end %>

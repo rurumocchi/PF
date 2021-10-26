@@ -8,8 +8,7 @@ class OgirisController < ApplicationController
   end
 
   def index
-    @ogiris = Ogiri.all.order(created_at: :desc).order(params[:sort])
-    #@ogiris = Ogiri.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+    @ogiris = Ogiri.all.order(created_at: :desc).order(params[:sort]) #大喜利一覧表示(新しい順)
   end
 
   def create
@@ -40,7 +39,7 @@ class OgirisController < ApplicationController
   end
 
   def favorite_rank
-    @ogiris = Ogiri.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+    @ogiris = Ogiri.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size} #大喜利いいねランキング
 
   end
 

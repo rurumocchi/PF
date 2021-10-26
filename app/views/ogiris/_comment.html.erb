@@ -3,13 +3,16 @@
     <% ogiri_comment_user = ogiri_comment.user %>
     <tr>
       <td class = "comment_user">
+        <!--コメントユーザ情報-->
         <%= ogiri.created_at.strftime('%Y/%m/%d') %>
         <%= link_to user_path(ogiri_comment_user) do %>
       		<%= attachment_image_tag ogiri_comment_user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %><br>
       		<%= ogiri_comment_user.name %>
     	   <% end %>
       </td>
+      <!--コメント本文-->
       <td class = "comment"><%= ogiri_comment.comment %></td>
+      <!--5段階評価-->
       <td class = "rate">
          <div id="rate_<%= ogiri_comment.id %>"></div>
           <script>
@@ -24,6 +27,7 @@
            });
           </script>
        </td>
+       <!--もし現在ログインしているユーザがコメントしたユーザであれば、削除機能を付ける-->
        <% if current_user == ogiri_comment_user %>
       	<td><%= link_to 'Destroy', ogiri_ogiri_comment_path(ogiri_comment.ogiri_id, ogiri_comment.id), class: 'btn-sm btn-danger', method: :delete, data: { confirm: '本当に消しますか？' }, remote: true %></td>
     	<% end %>
@@ -33,22 +37,23 @@
   <h6 class = "ml-5 mt-2">コメントする</h6>
   <%= form_with model:[@ogiri,@ogiri_comment], local: true do |f| %>
     <div class = "text-right mt-3">
+      <!--コメントする-->
       <%= f.text_area :comment, size:"88x2" , placeholder: 'コメントをここに' %><br>
     </div>
+    <!--5段階評価をつける-->
     <div id="star" class="form-group text-right">
-    <%= f.label :rate %>
-    <%= f.hidden_field :rate, class:"form-control" %>
-  </div>
-  <script>
-    $('#star').raty({
-      size     : 36,
-      starOff:  '<%= asset_path('star-off.png') %>',
-      starOn :  '<%= asset_path('star-on.png') %>',
-      starHalf: '<%= asset_path('star-half.png') %>',
-      scoreName: 'ogiri_comment[rate]',
-
-      half: true,
-    });
+      <%= f.label :rate %>
+      <%= f.hidden_field :rate, class:"form-control" %>
+    </div>
+    <script>
+      $('#star').raty({
+        size     : 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn :  '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        scoreName: 'ogiri_comment[rate]',
+        half: true,
+      });
   </script>
     <div class = "text-right">
       <%= f.submit '送信'%>

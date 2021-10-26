@@ -1,6 +1,7 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
     <div class = "col-md-3 border-info" style="margin-top:100px;">
+      <!--詳細ページに飛んだ、ユーザ情報を表示-->
       <%= render 'users/info', user: @user %>
     </div>
     <div class='col-md-8 offset-md-1' style="margin-top:80px;">
@@ -11,10 +12,12 @@
         </div>
         <h3 class = "title-index mb-4">投稿した回答</h3>
       </div>
+       <!--ユーザが投稿した回答一覧表示-->
       <% @ogiri_answers.each do |ogiri_answer| %>
       <div class = "border col-md-11 offset-md-1 mb-3">
         <% ogiri_answer_user = ogiri_answer.user %>
         <div class = "mt-2">
+           <!--回答者情報-->
           <%= "回答者" %>
           <%= ogiri_answer.created_at.strftime('%Y/%m/%d') %></br>
           <%= link_to user_path(ogiri_answer_user) do %>
@@ -22,6 +25,7 @@
             <%= ogiri_answer_user.name %>
           <% end %>
         </div>
+         <!--もし画像のお題に対して回答していたら-->
         <% if ogiri_answer.ogiri_odai.odai_image.present? %>
           <div class = "text-center">
             <a class = "ogiri-image">
@@ -31,11 +35,12 @@
             </a>
             <div>
               <%= link_to ogiri_odai_ogiri_answer_path(ogiri_answer), class: "link" do %>
-                <h5 class = "answer-size mt-3">解答：<%= ogiri_answer.ogiri_answer %></h5>
+                <h5 class = "answer-size mt-3">回答：<%= ogiri_answer.ogiri_answer %></h5>
               <% end %>
             </div>
           </div>
         <% end %>
+         <!--もし文のお題に対して回答していたら-->
         <% if ogiri_answer.ogiri_odai.odai_text.present? %>
           <div class = "text-center">
             <div class = "ogiri-odai-image">
@@ -47,19 +52,15 @@
             <div>
               <div>
                 <%= link_to ogiri_odai_ogiri_answer_path(ogiri_answer), class: "link" do %>
-                  <h5 class = "answer-size mt-3">解答：<%= ogiri_answer.ogiri_answer %></h5>
+                  <h5 class = "answer-size mt-3">回答：<%= ogiri_answer.ogiri_answer %></h5>
                 <% end %>
               </div>
             </div>
           </div>
         <% end %>
-        <div class = "answer_favorite-btn_<%= ogiri_answer.id %> favorite mt-2">
-          <%= link_to ogiri_answer.ogiri_odai.genre_name, search_genre_path(keyword: ogiri_answer.ogiri_odai.genre_name),class: "mr-2 ml-2" %>
-          いいね <%= render "answer_favorites/answer_favorite-btn", ogiri_answer: ogiri_answer, ogiri_odai: @ogiri_odai %>
-        </div>
-    <div>
+      <div>
       </div>
-      <% end %>
+    <% end %>
     </div>
   </div>
 </div>

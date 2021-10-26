@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in_path_for(resource)
-    ogiris_path
+    ogiris_path #ログイン後大喜利一覧に遷移
   end
 
   def after_sign_out_path_for(resource)
-    root_path
+    root_path #ログアウト後ホーム画面に
   end
 
   def configure_permitted_parameters

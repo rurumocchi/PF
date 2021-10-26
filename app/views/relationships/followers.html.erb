@@ -1,10 +1,12 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
     <div class = "col-md-3 border-info" style="margin-top:100px;">
+      <!--ログインしたユーザ情報-->
       <%= render 'users/info', user: current_user %>
     </div>
-    <div class = 'col-md-6 offset-md-1'style="margin-top:80px;">
+    <div class = 'col-md-7 offset-md-1'style="margin-top:80px;">
     <h3 class = "title-index mb-4">Follower Users</h3>
+      <!--もしフォローされているユーザが存在するのであれば、その情報を映し出す-->
       <% if @users.exists? %>
         <% @users.each do |user| %>
           <table class = "table table-bordered">
@@ -45,8 +47,9 @@
             </tr>
           </table>
         <% end %>
+      <!--もしフォロワーがいなければ-->
       <% else %>
-        <p>ユーザーはいません</p>
+        <p>フォローされているユーザーはいません</p>
       <% end %>
     </div>
   </div>

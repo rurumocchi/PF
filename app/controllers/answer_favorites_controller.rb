@@ -10,7 +10,7 @@ class AnswerFavoritesController < ApplicationController
   def destroy
     @ogiri_answer = OgiriAnswer.find(params[:ogiri_answer_id])
     answer_favorite = @ogiri_answer.answer_favorites.find_by(user_id: current_user.id)
-    answer_favorite.destroy!
+    answer_favorite.destroy
     redirect_to request.referer
   end
 end

@@ -1,17 +1,18 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
     <div class = "col-md-3 border-info" style="margin-top:100px;">
+      <!--ログインしたユーザ情報-->
       <%= render 'users/info', user: current_user %>
     </div>
     <div class='col-md-8 offset-md-1' style="margin-top:80px;">
       <div>
         <div class = "index">
           <%= link_to "大喜利いいねランキング",  favorite_rank_ogiris_path, class: "index_btn" %>
-          <%= link_to "回答いいねランキング", "/ogiri_odais/:id/ogiri_answers/answer_favorite_rank", class: "index_btn" %>
+          </%= link_to "回答いいねランキング", "/ogiri_odais/:id/ogiri_answers/answer_favorite_rank", class: "index_btn" %>
         </div>
         <h3 class = "title-index mb-4">お題いいねランキング</h3>
       </div>
-      <a href="/ogiri_odais/:id/ogiri_answers/answer_favorite_rank">fruits_path</a>
+      <!--いいねしたお題の一覧表示-->
       <%= render partial: "ogiri_odais/ogiri_odai", collection: @ogiri_odais %>
     </div>
   </div>

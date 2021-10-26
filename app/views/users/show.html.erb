@@ -1,6 +1,7 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
     <div class = "col-md-3 border-info" style="margin-top:100px;">
+      <!--詳細ページに飛んだ、ユーザ情報を表示-->
       <%= render 'users/info', user: @user %>
     </div>
     <div class='col-md-8 offset-md-1' style="margin-top:80px;">
@@ -11,6 +12,7 @@
         </div>
         <h3 class = "title-index mb-4">投稿した大喜利</h3>
       </div>
+      <!--ユーザが投稿した大喜利一覧表示-->
       <%= render partial: "ogiris/ogiri", collection: @ogiris %>
     </div>
   </div>

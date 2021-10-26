@@ -4,20 +4,20 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @ogiris = @user.ogiris.all.order(created_at: :desc)
+    @ogiris = @user.ogiris.all.order(created_at: :desc) #投稿した大喜利一覧
   end
 
   def create_odais
     @user = User.find(params[:id])
-    @ogiri_odais = @user.ogiri_odais.all.order(created_at: :desc)
+    @ogiri_odais = @user.ogiri_odais.all.order(created_at: :desc) #投稿したお題一覧
   end
 
   def create_answers
     @user = User.find(params[:id])
-    @ogiri_answers = @user.ogiri_answers.all.order(created_at: :desc)
+    @ogiri_answers = @user.ogiri_answers.all.order(created_at: :desc) #投稿した回答一覧
   end
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) #ユーザ情報編集
   end
 
   def update
@@ -33,20 +33,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     #@ogiri_odais = @user.ogiri_odais.all
     odai_favorites = OdaiFavorite.where(user_id: @user.id).pluck(:ogiri_odai_id)
-    @favorite_odais = OgiriOdai.find(odai_favorites)
+    @favorite_odais = OgiriOdai.find(odai_favorites) #いいねしたお題一覧
   end
 
   def favorites
     favorites = Favorite.where(user_id: @user.id).pluck(:ogiri_id)
-    @favorite_ogiris = Ogiri.find(favorites)
-    #@ogiris = Ogiri.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
-    #@favorite_ogiris = Ogiri.find(Like.group(:ogiri_id).order('created_at(ogiri_id) desc').pluck(:ogiri_id))
+    @favorite_ogiris = Ogiri.find(favorites) #いいねした大喜利一覧
   end
 
   def answer_favorites
     @user = User.find(params[:id])
     answer_favorites = AnswerFavorite.where(user_id: @user.id).pluck(:ogiri_answer_id)
-    @favorite_answers = OgiriAnswer.find(answer_favorites)
+    @favorite_answers = OgiriAnswer.find(answer_favorites) #いいねした回答一覧
   end
 
   private

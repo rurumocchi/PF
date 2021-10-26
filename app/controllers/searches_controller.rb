@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
 
   def search
     @users = User.all
-    @users = @users.where('name LIKE ?', "%#{params[:search]}%") if params[:search].present?
+    @users = @users.where('name LIKE ?', "%#{params[:search]}%") if params[:search].present? #ユーザ検索(部分検索)
     @search = params["search"]
   end
 

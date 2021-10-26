@@ -1,7 +1,9 @@
+ <!--もし検索したユーザが存在しないなら-->
 <% if @users.empty? %>
 <div class = "container px-5 px-sm-0">
   <div class = "row">
     <div class = "col-md-3 border-info" style="margin-top:100px;">
+      <!--現在ログインしているユーザ情報詳細-->
       <%= render 'users/info', user: current_user %>
     </div>
     <div class='col-md-8 offset-md-1'style="margin-top:80px;">
@@ -9,52 +11,61 @@
     </div>
   </div>
 </div>
+<!--もし検索したユーザが存在するなら-->
 <% else %>
   <div class = "container px-5 px-sm-0">
     <div class = "row">
-      <div class = "col-md-3 border-info" style="margin-top:150px;">
+      <div class = "col-md-3 border-info" style="margin-top:100px;">
+        <!--現在ログインしているユーザ情報詳細-->
         <%= render 'users/info', user: current_user %>
       </div>
-      <div class = 'col-md-6 offset-md-1'style="margin-top:80px;">
+      <div class = 'col-md-7 offset-md-1'style="margin-top:80px;">
         <h3 class = "title-index mb-4"> 検索結果 : <%= @search %></h3>
           <% @users.each do |user| %>
             <table class = "table table-bordered">
-                <tr>
-                  <td colspan="2">
-                    <%= link_to user_path(user) do %>
-                      <%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %>
-                    <% end %>
-                  </td>
-                </tr>
-                <tr>
-	                <th class = "th">name</th>
-	                <td class = "td">
-	                  <%= link_to user_path(user) do %>
-                     <%= user.name %>
-                    <% end %>
-	                </td>
-                </tr>
-                <tr>
-                  <th class = "th">follows</th>
-                  <td class = "td">
-                    <%= link_to user_followings_path(user) do %>
-                     <%= user.followings.count %>
-                    <% end %>
-                  </td>
-                </tr>
-                <tr>
-                  <th class = "th">followers</th>
-                  <td class = "td">
-                    <%= link_to user_followers_path(user) do %>
-                      <%= user.followers.count %>
-                    <% end %>
-                  </td>
-                </tr>
-                <tr>
-                  <th class = "th introduction">introduction</th>
-	                <td class = "introduction ml-2"><%= user.introduction %></td>
-                </tr>
-              </table>
+              <tr>
+                <td colspan="2">
+                  <!--ユーザアイコン、登録してなければno_image.jpg-->
+                  <%= link_to user_path(user) do %>
+                    <%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+	             <th class = "th">name</th>
+	               <td class = "td">
+	                 <!--登録したユーザ名前-->
+	                 <%= link_to user_path(user) do %>
+                    <%= user.name %>
+                   <% end %>
+	               </td>
+              </tr>
+              <tr>
+                <th class = "th">follows</th>
+                <td class = "td">
+                  <!--フォロー機能-->
+                  <%= link_to user_followings_path(user) do %>
+                    <!--フォロー数、フォロー一覧のリンク-->
+                    <%= user.followings.count %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <th class = "th">followers</th>
+                <td class = "td">
+                  <!--フォロワー機能、フォロワー一覧のリンク-->
+                  <%= link_to user_followers_path(user) do %>
+                    <!--フォロワー数-->
+                    <%= user.followers.count %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <!--ユーザ紹介文-->
+                <th class = "th introduction">introduction</th>
+	              <td class = "introduction ml-2"><%= user.introduction %></td>
+              </tr>
+            </table>
           <% end %>
       </div>
     </div>

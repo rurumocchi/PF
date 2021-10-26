@@ -2,7 +2,7 @@ class OgiriAnswersController < ApplicationController
 before_action :authenticate_user!
 
   def new
-    @ogiri_odai = OgiriOdai.find(params[:ogiri_odai_id])
+    @ogiri_odai = OgiriOdai.find(params[:ogiri_odai_id]) #回答するお題
     @ogiri_answer = OgiriAnswer.new
   end
   def create
@@ -18,7 +18,7 @@ before_action :authenticate_user!
   end
 
   def show
-     @ogiri_answer = OgiriAnswer.find(params[:ogiri_odai_id])
+     @ogiri_answer = OgiriAnswer.find(params[:ogiri_odai_id]) #お題に対してした回答の詳細
   end
 
   def answer_favorite_rank
@@ -35,7 +35,14 @@ before_action :authenticate_user!
   private
 
   def ogiri_answer_params
-		params.require(:ogiri_answer).permit(:ogiri_answer)
+		params.require(:ogiri_answer).permit(:ogiri_answer, :ogiri_odai_id)
 	end
+
+	def ensure_correct_user
+    @ogiri_answer = OgiriAnswer.find(params[:ogiri_odai_id])
+    unless @ogiri_answer.user == current_user
+      redirect_to ogiri_odais_path
+    end
+  end
 
 end

@@ -1,11 +1,13 @@
 
   <div class = "border col-md-11 offset-md-1 mb-3">
     <div class = "mt-2">
+      <!--大喜利投稿ユーザ情報表示-->
       <%= link_to user_path(ogiri.user) do %>
         <%= attachment_image_tag(ogiri.user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %>
         <%= ogiri.user.name %>
       <% end %>
     </div>
+     <!--もし画像での大喜利を投稿していたら、投稿した画像と回答を画面に映す-->
     <% if ogiri.image.present? %>
       <div class = "text-center">
         <a class = "ogiri-image">
@@ -15,30 +17,36 @@
         </a>
         <div>
           <%= link_to ogiri_path(ogiri), class: "link" do %>
-            <h5 class = "answer-size mt-3">解答：<%= ogiri.answer %></h5>
+            <h5 class = "answer-size mt-3">回答：<%= ogiri.answer %></h5>
           <% end %>
         </div>
       </div>
     <% end %>
+    <!--もしお題での大喜利を投稿していたら、投稿した文と回答を画面に映す-->
     <% if ogiri.ogiri_odai.present? %>
       <div class = "text-center">
         <div class = "ogiri-odai-image">
           <%= link_to ogiri_path(ogiri), class: "link" do %>
+            <!--背景の画像と共に、投稿したお題を画面に映す-->
             <%= image_tag "ogiri2.png" %>
             <p><%= ogiri.ogiri_odai %></p>
           <% end %>
         </div>
         <div>
           <%= link_to ogiri_path(ogiri), class: "link" do %>
-            <h5 class = "answer-size mt-3">解答：<%= ogiri.answer %></h5>
+            <h5 class = "answer-size mt-3">回答：<%= ogiri.answer %></h5>
           <% end %>
         </div>
       </div>
     <% end %>
     <div class="favorite-btn_<%= ogiri.id %> favorite">
+      <!--投稿日-->
       <%= ogiri.created_at.strftime('%Y/%m/%d') %>
+      <!--投稿したジャンル検索のリンク-->
       <%= link_to ogiri.genre_name, search_genre_path(keyword: ogiri.genre_name),class: "mr-2 ml-2" %>
+      <!--いいねボタン-->
       いいね <%= render "favorites/favorite-btn", ogiri: ogiri %>
+      <!--投稿した大喜利詳細へのリンク-->
       <%= link_to '大喜利詳細へ→', ogiri_path(ogiri), class: "show-page" %>
     </div>
   </div>

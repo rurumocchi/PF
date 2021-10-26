@@ -1,6 +1,7 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
     <div class = "col-md-3 border-info" style="margin-top:100px;">
+      <!--ログインしたユーザ情報-->
       <%= render 'users/info', user: current_user %>
     </div>
     <div  class='col-md-8 offset-md-1'style="margin-top:80px;">
@@ -10,7 +11,8 @@
         </div>
         <h3 class = "title-index mb-4">お題一覧</h3>
       </div>
-     <%= render partial: "ogiri_odais/ogiri_odai", collection: @ogiri_odais %>
+       <!--投稿されたお題一覧表示-->
+      <%= render partial: "ogiri_odais/ogiri_odai", collection: @ogiri_odais %>
     </div>
   </div>
 </div>

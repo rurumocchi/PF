@@ -1,11 +1,13 @@
 <div class = "border col-md-11 offset-md-1 mb-3">
   <div class = "mt-2">
+    <!--出題したユーザ情報-->
     <%= "出題者" %></br>
     <%= link_to user_path(ogiri_odai.user) do %>
       <%= attachment_image_tag(ogiri_odai.user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %>
       <%= ogiri_odai.user.name %>
     <% end %>
   </div>
+  <!--もし画像でのお題を投稿していたら、投稿したお題を画面に映す-->
   <% if ogiri_odai.odai_image.present? %>
     <div class = "text-center">
       <a class = "ogiri-image">
@@ -15,10 +17,12 @@
       </a>
     </div>
   <% end %>
+  <!--もし文でのお題を投稿していたら、投稿したお題を画面に映す-->
   <% if ogiri_odai.odai_text.present? %>
     <div class = "text-center">
       <div class = "ogiri-odai-image">
         <%= link_to ogiri_odai_path(ogiri_odai), class: "link" do %>
+          <!--背景の画像と共に、投稿したお題を画面に映す-->
           <%= image_tag "ogiri.answer.png" %>
           <p><%= ogiri_odai.odai_text %></p>
         <% end %>
@@ -26,9 +30,13 @@
     </div>
   <% end %>
   <div class = "odai_favorite-btn_<%= ogiri_odai.id %> favorite mt-4">
+    <!--投稿日-->
     <%= ogiri_odai.created_at.strftime('%Y/%m/%d') %>
+     <!--投稿したジャンル検索のリンク-->
     <%= link_to ogiri_odai.genre_name, search_genre_odai_path(keyword: ogiri_odai.genre_name),class: "mr-2 ml-2" %>
+    <!--いいねボタン-->
     いいね <%= render "odai_favorites/odai_favorite-btn", ogiri_odai: ogiri_odai %>
+    <!--投稿したお題詳細 & 回答へのリンク-->
     <%= link_to 'お題詳細 & 回答へ→', ogiri_odai_path(ogiri_odai), class: "show-page" %>
   </div>
 </div>
