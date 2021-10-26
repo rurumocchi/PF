@@ -5,4 +5,10 @@ class CategoriesController < ApplicationController
     @ogiris = Ogiri.search_genre(params[:keyword]).order(created_at: :desc)
   end
 
+  def search_genre_odai
+    @ogiri_odai = OgiriOdai.new
+    @ogiri_odais = OgiriOdai.search_genre_odai(params[:keyword]).order(created_at: :desc)
+  end
+
+
 end

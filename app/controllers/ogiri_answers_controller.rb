@@ -21,6 +21,10 @@ before_action :authenticate_user!
      @ogiri_answer = OgiriAnswer.find(params[:ogiri_odai_id])
   end
 
+  def answer_favorite_rank
+    @ogiri_answers = OgiriAnswer.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+  end
+
   def destroy
     @ogiri_odai = OgiriOdai.find(params[:ogiri_odai_id])
     ogiri_answer = @ogiri_odai.ogiri_answers.find(params[:id])

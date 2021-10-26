@@ -1,12 +1,21 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:favorites]
+  before_action :set_user, only: [:favorites, :odai_favorites, :answer_favorites]
 
   def show
     @user = User.find(params[:id])
     @ogiris = @user.ogiris.all.order(created_at: :desc)
   end
 
+  def create_odais
+    @user = User.find(params[:id])
+    @ogiri_odais = @user.ogiri_odais.all.order(created_at: :desc)
+  end
+
+  def create_answers
+    @user = User.find(params[:id])
+    @ogiri_answers = @user.ogiri_answers.all.order(created_at: :desc)
+  end
   def edit
     @user = User.find(params[:id])
   end
@@ -35,8 +44,11 @@ class UsersController < ApplicationController
   end
 
   def answer_favorites
-    
+    @user = User.find(params[:id])
+    answer_favorites = AnswerFavorite.where(user_id: @user.id).pluck(:ogiri_answer_id)
+    @favorite_answers = OgiriAnswer.find(answer_favorites)
   end
+
   private
 
   def user_params

@@ -39,6 +39,7 @@
       <%= ogiri.created_at.strftime('%Y/%m/%d') %>
       <%= link_to ogiri.genre_name, search_genre_path(keyword: ogiri.genre_name),class: "mr-2 ml-2" %>
       いいね <%= render "favorites/favorite-btn", ogiri: ogiri %>
+      <%= link_to '大喜利詳細へ→', ogiri_path(ogiri), class: "show-page" %>
     </div>
   </div>
 

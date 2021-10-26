@@ -3,8 +3,8 @@
     <div class = "col-md-3 border-info" style="margin-top:100px;">
       <%= render 'users/info', user: current_user %>
     </div>
-    <div class = 'col-md-6 offset-md-1'style="margin-top:100px;">
-    <h3 class = "mb-4">Follow Users</h3>
+    <div class = 'col-md-6 offset-md-1'style="margin-top:80px;">
+    <h3 class = "title-index mb-4">Follow Users</h3>
       <% if @users.exists? %>
       <% @users.each do |user| %>
           <table class = "table table-bordered">

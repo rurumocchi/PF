@@ -1,0 +1,69 @@
+<div class = "container px-5 px-sm-0">
+  <div class = "row">
+    <div class = "col-md-3 border-info" style="margin-top:100px;">
+      <%= render 'users/info', user: current_user %>
+    </div>
+    <div class='col-md-8 offset-md-1'style="margin-top:80px;">
+      <h3 class = "title-index mb-4"> 大喜利ジャンル検索BOX</h3>
+      <table class="table table-bordered mt-4">
+        <thead>
+          <tr>
+            <th>ジャンル検索(大喜利)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <%= link_to "写真で一言", search_genre_path('keyword': "写真で一言", 'search[how]': "match") %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= link_to "画像でボケて", search_genre_path('keyword': "画像でボケて", 'search[how]': "match") %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= link_to "お題で一言", search_genre_path('keyword': "お題で一言", 'search[how]': "match") %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= link_to "その他", search_genre_path('keyword': "その他", 'search[how]': "match") %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 class = "title-index mb-4 mt-5"> お題ジャンル検索BOX</h3>
+      <table class="table table-bordered mt-4">
+        <thead>
+          <tr>
+            <th>ジャンル検索(お題)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <%= link_to "写真で一言", search_genre_odai_path('keyword': "写真で一言", 'search[how]': "match") %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= link_to "画像でボケて", search_genre_odai_path('keyword': "画像でボケて", 'search[how]': "match") %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= link_to "お題で一言", search_genre_odai_path('keyword': "お題で一言", 'search[how]': "match") %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= link_to "その他", search_genre_odai_path('keyword': "その他", 'search[how]': "match") %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

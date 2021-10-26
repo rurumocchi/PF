@@ -41,7 +41,9 @@ class OgirisController < ApplicationController
 
   def favorite_rank
     @ogiris = Ogiri.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+
   end
+
 
   private
 

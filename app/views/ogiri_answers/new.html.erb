@@ -3,7 +3,13 @@
     <div class = "col-md-3 border-info" style="margin-top:100px;">
       <%= render 'users/info', user: current_user %>
     </div>
-    <div class = "col-md-8 offset-md-1" style="margin-top:100px;">
+    <div class = "col-md-8 offset-md-1" style="margin-top:80px;">
+      <div>
+        <div class = "index">
+          <%= link_to "お題詳細へ戻る", ogiri_odai_path(@ogiri_odai), class: "index_btn" %>
+        </div>
+        <h3 class = "title-index mb-4">お題を回答する</h3>
+      </div>
       <div class = "border col-md-11 offset-md-1 mb-3">
         <div class = "mt-2">
           <%= link_to user_path(@ogiri_odai.user) do %>
@@ -39,7 +45,6 @@
           <%= link_to @ogiri_odai.genre_name, search_genre_path(keyword: @ogiri_odai.genre_name),class: "mr-2 ml-2" %>
         </div>
       </div>
-      <h3 class = "m-4">お題を回答する</h3>
       <%= form_with model:[@ogiri_odai,@ogiri_answer], local: true do |f| %>
         <div class = "text-center mt-3">
           <%= f.text_area :ogiri_answer, size:"70x2" , placeholder: '回答をここに' %><br>

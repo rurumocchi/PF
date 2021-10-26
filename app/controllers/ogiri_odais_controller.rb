@@ -31,6 +31,11 @@ class OgiriOdaisController < ApplicationController
     redirect_to ogiri_odais_path
   end
 
+  def odai_favorite_rank
+     @ogiri_odais = OgiriOdai.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+     
+  end
+
   private
 
   def ogiri_odai_params

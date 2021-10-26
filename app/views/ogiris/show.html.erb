@@ -3,7 +3,13 @@
     <div class = "col-md-3 border-info" style="margin-top:100px;">
       <%= render 'users/info', user: @ogiri.user %>
     </div>
-    <div class='col-md-8 offset-md-1' style="margin-top:100px;">
+    <div class='col-md-8 offset-md-1' style="margin-top:80px;">
+      <div>
+        <div class = "index">
+          <%= link_to '大喜利一覧', ogiris_path, class: "index_btn" %>
+        </div>
+        <h3 class = "title-index mb-4">大喜利詳細</h3>
+      </div>
       <div class = "border-show col-md-11 offset-md-1 mb-3">
         <div class = "mt-2">
           <%= link_to user_path(@ogiri.user) do %>
@@ -44,6 +50,7 @@
             <%= @ogiri.created_at.strftime('%Y/%m/%d') %>
             <%= link_to @ogiri.genre_name, search_genre_path(keyword: @ogiri.genre_name),class: "mr-2 ml-2" %>
             いいね<%= render "favorites/favorite-btn", ogiri: @ogiri %>
+            
           </div>
         <div>
           <% if @ogiri.user == current_user %>

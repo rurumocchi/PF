@@ -6,12 +6,12 @@
     <div class='col-md-8 offset-md-1' style="margin-top:80px;">
       <div>
         <div class = "index">
-          <%= link_to '投稿したお題',  create_odais_user_path, class: "index_btn" %>
+          <%= link_to '投稿した大喜利', user_path(@user), class: "index_btn" %>
           <%= link_to '投稿した回答', create_answers_user_path, class: "index_btn" %>
         </div>
-        <h3 class = "title-index mb-4">投稿した大喜利</h3>
+        <h3 class = "title-index mb-4">投稿したお題</h3>
       </div>
-      <%= render partial: "ogiris/ogiri", collection: @ogiris %>
+      <%= render partial: "ogiri_odais/ogiri_odai", collection: @ogiri_odais %>
     </div>
   </div>
 </div>

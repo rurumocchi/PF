@@ -4,8 +4,13 @@
       <%= render 'users/info', user: @user %>
     </div>
     <div class='col-md-8 offset-md-1' style="margin-top:80px;">
-      <%= link_to 'いいねしたお題一覧', odai_favorites_user_path(@user) %>
-      <h3 class = "mb-4">いいねした投稿一覧</h3>
+      <div>
+        <div class = "index">
+          <%= link_to 'いいねしたお題一覧', odai_favorites_user_path(@user), class: "index_btn" %>
+          <%= link_to 'いいねした回答一覧', answer_favorites_user_path(@user), class: "index_btn" %>
+        </div>
+        <h3 class = "title-index mb-4">いいねした投稿一覧</h3>
+      </div>
       <%= render partial: "ogiris/ogiri", collection: @favorite_ogiris %>
     </div>
   </div>

@@ -3,7 +3,13 @@
     <div class = "col-md-3 border-info" style="margin-top:100px;">
       <%= render 'users/info', user: current_user %>
     </div>
-      <div class='col-md-8 offset-md-1'style="margin-top:100px;">
+      <div class='col-md-8 offset-md-1'style="margin-top:80px;">
+        <div>
+          <div class = "index">
+            <%= link_to 'お題一覧', ogiri_odais_path, class: "index_btn" %>
+          </div>
+          <h3 class = "title-index mb-4">大喜利一覧</h3>
+        </div>
         <%= render partial: "ogiris/ogiri", collection: @ogiris %>
       </div>
   </div>

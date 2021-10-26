@@ -6,12 +6,12 @@
     <div class='col-md-8 offset-md-1' style="margin-top:80px;">
       <div>
         <div class = "index">
+          <%= link_to "大喜利いいねランキング",  favorite_rank_ogiris_path, class: "index_btn" %>
           <%= link_to "お題いいねランキング", odai_favorite_rank_ogiri_odais_path, class: "index_btn" %>
-          </%= link_to "回答いいねランキング", answer_favorite_rank_ogiri_odai_ogiri_answers_path(params[:ogiri_odai_id]), class: "index_btn" %>
         </div>
-        <h3 class = "title-index mb-4">大喜利いいねランキング</h3>
+        <h3 class = "title-index mb-4">回答いいねランキング</h3>
       </div>
-      <%= render partial: "ogiris/ogiri", collection: @ogiris %>
+        </%= render 'ogiri_odais/answer', ogiri_odai: @ogiri_odai,ogiri_answer: @ogiri_answer %>
     </div>
   </div>
 </div>

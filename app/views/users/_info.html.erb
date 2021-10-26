@@ -1,4 +1,4 @@
-<div class = "search-form">
+  <div class = "search-form">
     <%= form_with url: search_path, method: :get, local: true do |f| %>
       <h6 class = "mr-3">ユーザ検索</h6>
       <%= f.text_field 'search', class: "mt-2" %>
@@ -62,35 +62,6 @@
     <%= link_to "フォローする",  user_relationships_path(user), method: :post, class: "btn btn-success btn-sm ml-3 mt-2 mb-3" %>
   <% end %>
   </div>
-  <div class = "row">
-    <%= link_to "いいねした投稿", favorites_user_path(user),class:"btn btn-outline-secondary btn-block pt-2 ml-3 mr-3" %>
+  <div class = "row mb-4">
+    <%= link_to "いいね一覧", favorites_user_path(user),class:"btn btn-outline-secondary btn-block pt-2 ml-3 mr-3" %>
   </div>
-  <table class="table table-bordered mt-4">
-        <thead>
-          <tr>
-            <th>ジャンル検索</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <%= link_to "写真で一言", search_genre_path('keyword': "写真で一言", 'search[how]': "match") %>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <%= link_to "画像でボケて", search_genre_path('keyword': "画像でボケて", 'search[how]': "match") %>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <%= link_to "お題で一言", search_genre_path('keyword': "お題で一言", 'search[how]': "match") %>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <%= link_to "その他", search_genre_path('keyword': "その他", 'search[how]': "match") %>
-            </td>
-          </tr>
-        </tbody>
-      </table>

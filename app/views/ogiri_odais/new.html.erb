@@ -3,8 +3,13 @@
     <div class = "col-md-3 border-info" style="margin-top:100px;">
       <%= render 'users/info', user: current_user %>
     </div>
-    <div class = "col-md-8 offset-md-1" style="margin-top:100px;">
-      <h3>新規お題投稿</h3>
+    <div class = "col-md-8 offset-md-1" style="margin-top:80px;">
+      <div>
+        <div class = "index">
+          <%= link_to '新規大喜利投稿', new_ogiri_path, class: "index_btn" %>
+        </div>
+        <h3 class = "title-index mb-4">新規お題投稿</h3>
+      </div>
       <%= form_with model:@ogiri_odai, local:true do |f| %>
         <div class = "form-group">
           <%= f.radio_button :ogiri_odai_select, "select_image", checked: true %>

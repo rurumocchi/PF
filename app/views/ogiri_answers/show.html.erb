@@ -3,7 +3,13 @@
     <div class = "col-md-3 border-info" style="margin-top:100px;">
       <%= render 'users/info', user: @ogiri_answer.user %>
     </div>
-    <div class='col-md-8 offset-md-1' style="margin-top:100px;">
+    <div class='col-md-8 offset-md-1' style="margin-top:80px;">
+      <div>
+        <div class = "index">
+          <%= link_to "お題詳細へ戻る", ogiri_odai_path, class: "index_btn" %>
+        </div>
+        <h3 class = "title-index mb-4">回答詳細ページ</h3>
+      </div>
       <div class = "border-show col-md-11 offset-md-1 mb-3">
         <% ogiri_answer_user = @ogiri_answer.user %>
         <div class = "mt-2">
@@ -45,6 +51,10 @@
             </div>
           </div>
         <% end %>
+        <div class = "answer_favorite-btn_<%= @ogiri_answer.id %> favorite mt-2">
+          <%= link_to @ogiri_answer.ogiri_odai.genre_name, search_genre_path(keyword: @ogiri_answer.ogiri_odai.genre_name),class: "mr-2 ml-2" %>
+
+        </div>
       </div>
     </div>
   </div>
