@@ -5,10 +5,10 @@ class Ogiri < ApplicationRecord
   has_many :favorited_users, through: :favorites, source: :user
 	has_many :ogiri_comments, dependent: :destroy
 
-  validates :answer, presence: true, length: { maximum: 200 }
+  validates :answer, presence: true, length: { maximum: 100 }
   validates :ogiri_odai, length: { maximum: 75 }
-  attachment :image
-  
+  attachment :image, destroy: false
+
   # 大喜利投稿ラジオボタン
   enum ogiri_select: { select_image: 0, select_ogiri: 1}
 

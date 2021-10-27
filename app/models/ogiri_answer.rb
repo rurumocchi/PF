@@ -9,5 +9,5 @@ class OgiriAnswer < ApplicationRecord
 	  answer_favorites.where(user_id: user.id).exists?
   end
 
-  validates :ogiri_answer, presence: true, length: { maximum: 200 }
+  validates :ogiri_answer, presence: true, length: { maximum: 100 }
 end

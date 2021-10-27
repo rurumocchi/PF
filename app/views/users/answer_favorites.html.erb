@@ -54,6 +54,10 @@
                 </div>
               </div>
             <% end %>
+            <div class = "answer_favorite-btn_<%= favorite_answer.id %> favorite">
+
+              <%= link_to 'お題詳細へ→', ogiri_odai_path(favorite_answer.ogiri_odai) %>
+            </div>
           </div>
         <% end %>
     </div>

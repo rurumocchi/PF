@@ -47,7 +47,6 @@
       </div>
     <% end %>
     <div class = "answer_favorite-btn_<%= ogiri_answer.id %> favorite mt-2">
-      <%= link_to ogiri_odai.genre_name, search_genre_path(keyword: ogiri_odai.genre_name),class: "mr-2 ml-2" %>
       いいね <%= render "answer_favorites/answer_favorite-btn", ogiri_answer: ogiri_answer %>
     </div>
     <div>

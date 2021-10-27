@@ -44,7 +44,8 @@ class User < ApplicationRecord
     answer_favorites.where(ogiri_answer_id: ogiri_answer_id).exists?
   end
 
-  validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
+  validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true, presence: true
+  validates :email, presence: true
   validates :introduction, length: { maximum: 50 }
   attachment :profile_image, destroy: false
 end

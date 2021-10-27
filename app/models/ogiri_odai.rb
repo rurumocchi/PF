@@ -5,7 +5,8 @@ class OgiriOdai < ApplicationRecord
   has_many :odai_favorites, dependent: :destroy
   has_many :favorited_users, through: :odai_favorites, source: :user
 
-   attachment :odai_image
+  validates :odai_text, length: { maximum: 75 }
+  attachment :odai_image
    # お題投稿ラジオボタン
    enum ogiri_odai_select: { select_image: 0, select_ogiri: 1}
 
