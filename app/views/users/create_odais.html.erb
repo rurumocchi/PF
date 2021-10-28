@@ -14,6 +14,9 @@
       </div>
       <!--ユーザが投稿したお題一覧表示-->
       <%= render partial: "ogiri_odais/ogiri_odai", collection: @ogiri_odais %>
+      <div class="d-flex justify-content-center mt-4 mb-4">
+         <%= paginate @ogiri_odais %>
+      </div>
     </div>
   </div>
 </div>

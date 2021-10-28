@@ -4,17 +4,17 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @ogiris = @user.ogiris.all.order(created_at: :desc) #投稿した大喜利一覧
+    @ogiris = @user.ogiris.page(params[:page]).per(5).order(created_at: :desc) #投稿した大喜利一覧
   end
 
   def create_odais
     @user = User.find(params[:id])
-    @ogiri_odais = @user.ogiri_odais.all.order(created_at: :desc) #投稿したお題一覧
+    @ogiri_odais = @user.ogiri_odais.page(params[:page]).per(5).order(created_at: :desc) #投稿したお題一覧
   end
 
   def create_answers
     @user = User.find(params[:id])
-    @ogiri_answers = @user.ogiri_answers.all.order(created_at: :desc) #投稿した回答一覧
+    @ogiri_answers = @user.ogiri_answers.page(params[:page]).per(5).order(created_at: :desc) #投稿した回答一覧
   end
   def edit
     @user = User.find(params[:id]) #ユーザ情報編集
@@ -33,18 +33,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     #@ogiri_odais = @user.ogiri_odais.all
     odai_favorites = OdaiFavorite.where(user_id: @user.id).pluck(:ogiri_odai_id)
-    @favorite_odais = OgiriOdai.find(odai_favorites) #いいねしたお題一覧
+    @favorite_odais = OgiriOdai.order(created_at: :desc).find(odai_favorites) #いいねしたお題一覧
   end
 
   def favorites
     favorites = Favorite.where(user_id: @user.id).pluck(:ogiri_id)
-    @favorite_ogiris = Ogiri.find(favorites) #いいねした大喜利一覧
+    @favorite_ogiris = Ogiri.order(created_at: :desc).find(favorites) #いいねした大喜利一覧
   end
 
   def answer_favorites
     @user = User.find(params[:id])
     answer_favorites = AnswerFavorite.where(user_id: @user.id).pluck(:ogiri_answer_id)
-    @favorite_answers = OgiriAnswer.find(answer_favorites) #いいねした回答一覧
+    @favorite_answers = OgiriAnswer.order(created_at: :desc).find(answer_favorites) #いいねした回答一覧
   end
 
   private

@@ -30,7 +30,7 @@
           <div class = "text-center">
             <a class = "ogiri-image">
               <%= link_to ogiri_odai_path, class: "link" do %>
-                <%= attachment_image_tag(ogiri_answer.ogiri_odai, :odai_image, :fill, 410, 150) %>
+                <%= attachment_image_tag(ogiri_answer.ogiri_odai, :odai_image, width: '60%', height: '70%') %>
               <% end %>
             </a>
             <div>
@@ -60,5 +60,8 @@
         <% end %>
       </div>
     <% end %>
+    <div class="d-flex justify-content-center mt-4 mb-4">
+         <%= paginate @ogiri_answers %>
+      </div>
   </div>
 </div>

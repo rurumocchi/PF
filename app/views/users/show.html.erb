@@ -14,6 +14,9 @@
       </div>
       <!--ユーザが投稿した大喜利一覧表示-->
       <%= render partial: "ogiris/ogiri", collection: @ogiris %>
+      <div class="d-flex justify-content-center mt-4 mb-4">
+         <%= paginate @ogiris %>
+      </div>
     </div>
   </div>
 </div>

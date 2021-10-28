@@ -17,7 +17,7 @@ class OgiriOdaisController < ApplicationController
   end
 
   def index
-    @ogiri_odais = OgiriOdai.all.order(created_at: :desc) #お題一覧を表示(新しい順)
+    @ogiri_odais = OgiriOdai.page(params[:page]).per(5).order(created_at: :desc) #お題一覧を表示(新しい順)
   end
 
   def show

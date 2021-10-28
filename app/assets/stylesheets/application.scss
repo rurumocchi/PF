@@ -214,3 +214,25 @@ strong {
     margin-right: 3%;
     float: right;
 }
+
+.pagination {
+  justify-content: center;
+}
+/*ページネーション自体のデザイン*/
+.pagination>li>a {
+  border: none; /*枠線をなくす*/
+  color: #696969;/*文字の色を変える*/
+  margin-left: 3px;
+}
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;
+  border-radius: 9px
+}
+.page-item.active{
+  color:#ffcc66 !important;
+}
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 9px;    /*角を丸くする*/
+}
