@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
+
   #ホーム画面「/」
   root :to => "homes#top"
-  #アバウト画面
-  get "home/about" => "homes#about"
    #検索BOX画面
   get "home/search_top" => "homes#search_top"
    #ユーザ検索
@@ -14,7 +12,7 @@ Rails.application.routes.draw do
   get "search_genre" => "categories#search_genre"
    #ジャンル検索(お題)
   get "search_genre_odai"  => "categories#search_genre_odai"
-  
+
    #ユーザ詳細、編集、更新
   resources :users, only: [:show, :edit, :update] do
     member do
@@ -29,13 +27,13 @@ Rails.application.routes.draw do
       #投稿した回答一覧
       get :create_answers
     end
-    
+
     #ユーザフォロー機能
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end
-  
+
   #大喜利投稿、一覧、詳細、削除
   resources :ogiris, only: [:new, :index, :show, :create, :destroy] do
     collection do

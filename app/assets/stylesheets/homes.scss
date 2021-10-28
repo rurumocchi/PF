@@ -2,13 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*topページ*/
  .flame-image {
     position: relative;
     width: 600px;
     margin: 120px auto 0;
-
   }
-
+/*トップページの枠*/
   .flame-image img{
     width: 700px;
     width: 100%;
@@ -18,17 +18,47 @@
     color: darkgray;
     position: absolute;
     text-align: center;
-    top: 30%;
+    top: 20%;
     right: 10%;
     left: 10%;
-    margin-right: 5%;
+
   }
 
   .flame-image h2{
     color: darkgray;
     position: absolute;
     text-align: center;
-    top: 50%;
+    top: 40%;
     right: 10%;
     left: 10%;
+  }
+
+  .flame-image h3{
+    color: darkgray;
+    position: absolute;
+    text-align: center;
+    top: 55%;
+    right: 10%;
+    left: 10%;
+  }
+
+  .flame-image h4{
+    text-decoration: none;
+    color: darkgray;
+    position: absolute;
+    text-align: center;
+    top: 80%;
+    right: 10%;
+    left: 10%;
+  }
+
+  .flame-image h6{
+    text-decoration: none;
+    color: darkgray;
+    position: absolute;
+    text-align: center;
+    top: 20%;
+    right: 10%;
+    left: 10%;
+    margin-bottom: 5%;
   }
