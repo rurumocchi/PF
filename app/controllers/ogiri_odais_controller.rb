@@ -32,13 +32,14 @@ class OgiriOdaisController < ApplicationController
   end
 
   def odai_favorite_rank
-     @ogiri_odais = OgiriOdai.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size} #お題いいねランキング
+     ogiri_odais = OgiriOdai.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size} #お題いいねランキング
+     @ogiri_odais = Kaminari.paginate_array(ogiri_odais).page(params[:page]).per(5)
   end
 
   private
 
   def ogiri_odai_params
-    params.require(:ogiri_odai).permit(:odai_image,  :genre_name, :ogiri_odai_select, :odai_text)
+    params.require(:ogiri_odai).permit(:odai_image, :genre_name, :ogiri_odai_select, :odai_text)
   end
   def ensure_correct_user
     @ogiri_odai = OgiriOdai.find(params[:id])

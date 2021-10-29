@@ -12,7 +12,11 @@
         </div>
         <h3 class = "title-index mb-4">大喜利いいねランキング</h3>
       </div>
+       <!--投稿された大喜利いいねランキングの一覧表示-->
       <%= render partial: "ogiris/ogiri", collection: @ogiris %>
+       <div class="d-flex justify-content-center mt-4 mb-4">
+         <%= paginate @ogiris %>
+      </div>
     </div>
   </div>
 </div>

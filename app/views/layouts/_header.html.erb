@@ -4,10 +4,7 @@
       <div class="navbar-brand p-3">
         <a class="navbar-brand" href="/" ><h2 class = "title">お手軽大喜利</h2></a>
       </div>
-       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbardrop" aria-controls="navbardrop" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class = "collapse navbar-collapse" id = "navbardrop" >
+      <div class = "collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
             <li><%= link_to '大喜利一覧',ogiris_path,class: "nav-link border-header text-light mx-2"%></li>

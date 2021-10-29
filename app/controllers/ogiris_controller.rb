@@ -39,7 +39,8 @@ class OgirisController < ApplicationController
   end
 
   def favorite_rank
-    @ogiris = Ogiri.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size} #大喜利いいねランキング
+    ogiris = Ogiri.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size} #大喜利いいねランキング
+    @ogiris = Kaminari.paginate_array(ogiris).page(params[:page]).per(5)
   end
 
 

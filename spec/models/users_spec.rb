@@ -32,11 +32,11 @@ RSpec.describe User, type: :model do
       end
       it 'nameが2文字以上であること: 2文字は〇' do
         @user.name = Faker::Lorem.characters(number: 2)
-         expect(@user.invalid?).to eq true
+         expect(@user.invalid?).to eq false
       end
       it 'nameが20文字以下であること: 20文字は〇' do
         @user.name = Faker::Lorem.characters(number: 20)
-         expect(@user.invalid?).to eq true
+         expect(@user.invalid?).to eq false
       end
       it 'nameが20文字以下であること: 21文字は×' do
         @user.name = Faker::Lorem.characters(number: 21)
@@ -45,7 +45,7 @@ RSpec.describe User, type: :model do
 
     it 'introductionが50文字以下であること: 50文字は〇' do
         @user.introduction = Faker::Lorem.characters(number: 50)
-        expect(@user.invalid?).to eq true
+        expect(@user.invalid?).to eq false
       end
     it 'introductionが50文字以下であること: 51文字は×' do
         @user.introduction = Faker::Lorem.characters(number: 51)
@@ -54,17 +54,17 @@ RSpec.describe User, type: :model do
 
     it 'introductionが空だとNG' do
       @user.introduction = ''
-      expect(@user.valid?).to eq(false)
+      expect(@user.valid?).to eq(true)
     end
 
     it 'passwordが空だとNG' do
-      @user.encrypted_password = ''
+      @user.password = ''
       expect(@user.valid?).to eq(false)
     end
 
     it 'profile_image_idが空だとNG' do
       @user.profile_image_id = ''
-      expect(@user.valid?).to eq(false)
+      expect(@user.valid?).to eq(true)
     end
 
   end

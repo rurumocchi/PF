@@ -58,10 +58,13 @@
             </div>
           </div>
         <% end %>
+        <div class = "answer_favorite-btn_<%= ogiri_answer.id %> favorite">
+          <%= link_to 'お題詳細 & 回答へ→', ogiri_odai_path(ogiri_answer.ogiri_odai)%>
+        </div>
       </div>
     <% end %>
     <div class="d-flex justify-content-center mt-4 mb-4">
-         <%= paginate @ogiri_answers %>
-      </div>
+      <%= paginate @ogiri_answers %>
+    </div>
   </div>
 </div>

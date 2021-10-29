@@ -2,7 +2,7 @@
   <div class = "search-form">
     <%= form_with url: search_path, method: :get, local: true do |f| %>
       <h6 class = "mr-3">ユーザ検索</h6>
-      <%= f.text_field 'search', class: "mt-2" %>
+      <%= f.text_field 'search', class: "search mt-2 mb-2" %>
       <%= f.submit '検索',name: nil %>
     <% end %>
   </div>
@@ -50,14 +50,13 @@
 	    <td class = "introduction ml-2"><%= user.introduction %></td>
     </tr>
   </table>
-
   <div class = "row">
     <!--もし現在のユーザがログインしたユーザ自身であれば、ユーザ編集機能と投稿機能を表示する-->
     <% if user == current_user %>
     <%= link_to edit_user_path(user), class:"btn btn-outline-secondary btn-block pt-3 mr-3 ml-3 mb-2 " do %>
       <i class="fas fa-user-cog"><p class = "mt-2">編集する</p></i>
     <% end %>
-    <%= link_to new_ogiri_path(@ogiri), class:"btn btn-outline-secondary btn-block text-center pt-3 ml-3 mr-3 mb-3" do %>
+    <%= link_to new_ogiri_path(@ogiri), class:"btn btn-outline-secondary btn-block text-center pt-3 ml-3 mr-3 mb-2" do %>
       <p>大喜利を投稿する</p>
     <% end %>
     <%= link_to new_ogiri_odai_path, class:"btn btn-outline-secondary btn-block text-center pt-3 ml-3 mr-3 mb-3" do %>

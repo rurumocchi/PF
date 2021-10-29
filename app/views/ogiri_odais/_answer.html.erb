@@ -48,6 +48,7 @@
     <% end %>
     <div class = "answer_favorite-btn_<%= ogiri_answer.id %> favorite mt-2">
       いいね <%= render "answer_favorites/answer_favorite-btn", ogiri_answer: ogiri_answer %>
+      <%= link_to 'お題詳細 & 回答へ→', ogiri_odai_path(ogiri_answer.ogiri_odai), class: "show-page" %>
     </div>
     <div>
       <!--もしお題を回答したユーザがログインしているユーザであれば、削除ボタンをつける-->

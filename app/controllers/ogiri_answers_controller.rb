@@ -10,14 +10,15 @@ before_action :authenticate_user!
     @ogiri_answer = OgiriAnswer.new(ogiri_answer_params)
     @ogiri_answer.ogiri_odai_id = @ogiri_odai.id
     @ogiri_answer.user_id = current_user.id
-  if @ogiri_answer.save!
-  	redirect_to ogiri_odai_path(@ogiri_odai.id)
-  else
-		render 'ogiri_odais/show'
-  end
+    if @ogiri_answer.save!
+  	  redirect_to ogiri_odai_path(@ogiri_odai.id)
+    else
+		  render 'ogiri_odais/show'
+    end
   end
 
   def show
+    
      @ogiri_answer = OgiriAnswer.find(params[:ogiri_odai_id]) #お題に対してした回答の詳細
   end
 

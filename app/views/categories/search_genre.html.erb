@@ -8,9 +8,9 @@
       <h3 class = "title-index mb-4"> 検索結果一覧</h3>
       <!--検索された大喜利の一覧表示-->
       <%= render partial: "ogiris/ogiri", collection: @ogiris %>
-    </div>
-    <div class="d-flex justify-content-center mt-4 mb-4">
-      <%= paginate @ogiris %>
+      <div class="d-flex justify-content-center mt-4 mb-4">
+        <%= paginate @ogiris %>
+      </div>
     </div>
   </div>
 </div>
