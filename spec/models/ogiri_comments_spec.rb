@@ -6,18 +6,18 @@ RSpec.describe OgiriComment, type: :model do
   end
 
   describe 'バリデーション' do
-     it 'commentが空だとNG' do
+    it 'commentが空だとNG' do
       @ogiri_comment.comment = ''
       expect(@ogiri_comment.valid?).to eq(false)
     end
     it 'commentが100文字以下であること: 100文字は〇' do
-        @ogiri_comment.comment = Faker::Lorem.characters(number: 100)
-        expect(@ogiri_comment.invalid?).to eq true
-      end
+      @ogiri_comment.comment = Faker::Lorem.characters(number: 100)
+      expect(@ogiri_comment.invalid?).to eq true
+    end
     it 'commentが100文字以下であること: 101文字は×' do
-        @ogiri_comment.comment = Faker::Lorem.characters(number: 101)
-        expect(@ogiri_comment.valid?).to eq false
-      end
+      @ogiri_comment.comment = Faker::Lorem.characters(number: 101)
+      expect(@ogiri_comment.valid?).to eq false
+    end
     it 'rankが空だとNG' do
       @ogiri_comment.rate = ''
       expect(@ogiri_comment.valid?).to eq(false)
@@ -36,5 +36,4 @@ RSpec.describe OgiriComment, type: :model do
       end
     end
   end
-
 end

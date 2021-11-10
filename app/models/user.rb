@@ -15,9 +15,9 @@ class User < ApplicationRecord
   has_many :answer_favorites, dependent: :destroy
   has_many :favorited_ogiri_answers, through: :answer_favorites, source: :ogiri_answer
 
-  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :follower
-  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
   has_many :followings, through: :relationships, source: :followed
 
   def follow(user_id)

@@ -6,11 +6,11 @@ RSpec.describe Ogiri, type: :model do
   end
 
   describe 'バリデーション' do
-     it 'user_idが空だとNG' do
+    it 'user_idが空だとNG' do
       @ogiri.user_id = ''
       expect(@ogiri.valid?).to eq(false)
     end
-     it 'answerが空だとNG' do
+    it 'answerが空だとNG' do
       @ogiri.answer = ''
       expect(@ogiri.valid?).to eq(false)
     end
@@ -18,15 +18,15 @@ RSpec.describe Ogiri, type: :model do
       @ogiri.ogiri_odai = ''
       expect(@ogiri.valid?).to eq(false)
     end
-     it 'genre_nameが空だとNG' do
+    it 'genre_nameが空だとNG' do
       @ogiri.genre_name = ''
       expect(@ogiri.valid?).to eq(false)
     end
-     it 'image_idが空だとNG' do
+    it 'image_idが空だとNG' do
       @ogiri.image_id = ''
       expect(@ogiri.valid?).to eq(false)
     end
-     it 'ogiri_selectが空だとNG' do
+    it 'ogiri_selectが空だとNG' do
       @ogiri.ogiri_select = ''
       expect(@ogiri.valid?).to eq(false)
     end
@@ -39,7 +39,7 @@ RSpec.describe Ogiri, type: :model do
       @ogiri.answer = Faker::Lorem.characters(number: 101)
       expect(@ogiri.valid?).to eq(false)
     end
-     it 'ogiri_commentが75文字以下であること: 75文字は〇' do
+    it 'ogiri_commentが75文字以下であること: 75文字は〇' do
       @ogiri.ogiri_odai = Faker::Lorem.characters(number: 75)
       expect(@ogiri.invalid?).to eq(true)
     end

@@ -1,5 +1,4 @@
 class OdaiFavoritesController < ApplicationController
-
   def create
     @ogiri_odai = OgiriOdai.find(params[:ogiri_odai_id])
     odai_favorite = @ogiri_odai.odai_favorites.new(user_id: current_user.id)

@@ -5,6 +5,6 @@ FactoryBot.define do
     introduction { Faker::Lorem.characters(number: 20) }
     password { 'password' }
     password_confirmation { 'password' }
-    sequence(:profile_image_id) { |n| "000000" }
+    sequence(:profile_image_id) { |_n| '000000' }
   end
 end

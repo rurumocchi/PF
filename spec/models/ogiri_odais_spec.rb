@@ -27,14 +27,13 @@ RSpec.describe OgiriOdai, type: :model do
       expect(@ogiri_odai.valid?).to eq(false)
     end
     it 'odai_textが75文字以下であること: 75文字は〇' do
-       @ogiri_odai.odai_text = Faker::Lorem.characters(number: 75)
-       expect(@ogiri_odai.invalid?).to eq true
+      @ogiri_odai.odai_text = Faker::Lorem.characters(number: 75)
+      expect(@ogiri_odai.invalid?).to eq true
     end
     it 'odai_textが75文字以下であること: 76文字は×' do
       @ogiri_odai.odai_text = Faker::Lorem.characters(number: 76)
       expect(@ogiri_odai.valid?).to eq false
     end
-
   end
 
   describe 'アソシエーションのテスト' do
@@ -43,16 +42,15 @@ RSpec.describe OgiriOdai, type: :model do
         expect(User.reflect_on_association(:ogiri_odais).macro).to eq :has_many
       end
     end
-     context 'odai_favoriteモデルとの関係' do
+    context 'odai_favoriteモデルとの関係' do
       it 'N:1となっている' do
         expect(OdaiFavorite.reflect_on_association(:ogiri_odai).macro).to eq :belongs_to
       end
     end
-     context 'ogiri_answerモデルとの関係' do
+    context 'ogiri_answerモデルとの関係' do
       it 'N:1となっている' do
         expect(OgiriAnswer.reflect_on_association(:ogiri_odai).macro).to eq :belongs_to
       end
     end
   end
-
 end

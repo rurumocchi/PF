@@ -10,94 +10,92 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_28_153253) do
-
-  create_table "answer_favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "ogiri_answer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+ActiveRecord::Schema.define(version: 20_211_028_153_253) do
+  create_table 'answer_favorites', force: :cascade do |t|
+    t.integer 'user_id'
+    t.integer 'ogiri_answer_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'categories', force: :cascade do |t|
+    t.string 'category'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "ogiri_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'favorites', force: :cascade do |t|
+    t.integer 'user_id'
+    t.integer 'ogiri_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "odai_favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "ogiri_odai_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'odai_favorites', force: :cascade do |t|
+    t.integer 'user_id'
+    t.integer 'ogiri_odai_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "ogiri_answers", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "ogiri_odai_id"
-    t.string "ogiri_answer"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'ogiri_answers', force: :cascade do |t|
+    t.integer 'user_id'
+    t.integer 'ogiri_odai_id'
+    t.string 'ogiri_answer'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "ogiri_comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "ogiri_id"
-    t.text "comment"
-    t.float "rate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'ogiri_comments', force: :cascade do |t|
+    t.integer 'user_id'
+    t.integer 'ogiri_id'
+    t.text 'comment'
+    t.float 'rate'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "ogiri_odais", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "odai_image_id"
-    t.integer "ogiri_odai_select", default: 0
-    t.text "odai_text"
-    t.string "genre_name"
-    t.float "rate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'ogiri_odais', force: :cascade do |t|
+    t.integer 'user_id'
+    t.string 'odai_image_id'
+    t.integer 'ogiri_odai_select', default: 0
+    t.text 'odai_text'
+    t.string 'genre_name'
+    t.float 'rate'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "ogiris", force: :cascade do |t|
-    t.integer "user_id"
-    t.text "answer"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "image_id"
-    t.string "genre_name"
-    t.text "ogiri_odai"
-    t.integer "ogiri_select", default: 0
+  create_table 'ogiris', force: :cascade do |t|
+    t.integer 'user_id'
+    t.text 'answer'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'image_id'
+    t.string 'genre_name'
+    t.text 'ogiri_odai'
+    t.integer 'ogiri_select', default: 0
   end
 
-  create_table "relationships", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followed_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'relationships', force: :cascade do |t|
+    t.integer 'follower_id'
+    t.integer 'followed_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.string "name"
-    t.string "profile_image_id"
-    t.text "introduction"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  create_table 'users', force: :cascade do |t|
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.string 'name'
+    t.string 'profile_image_id'
+    t.text 'introduction'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['email'], name: 'index_users_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
-
 end

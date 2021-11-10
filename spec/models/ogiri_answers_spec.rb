@@ -1,25 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe OgiriAnswer, type: :model do
-
   before do
     @ogiri_answer = build(:ogiri_answer)
   end
 
-   describe 'バリデーション' do
-
+  describe 'バリデーション' do
     it 'ogiri_answerが空だとNG' do
       @ogiri_answer.ogiri_answer = ''
       expect(@ogiri_answer.valid?).to eq(false)
     end
     it 'ogiri_answerが100文字以下であること: 100文字は〇' do
-        @ogiri_answer.ogiri_answer = Faker::Lorem.characters(number: 100)
-         expect(@ogiri_answer.invalid?).to eq true
-      end
-      it 'ogiri_answerが100文字以下であること: 101文字は×' do
-        @ogiri_answer.ogiri_answer = Faker::Lorem.characters(number: 101)
-        expect(@ogiri_answer.valid?).to eq false
-      end
+      @ogiri_answer.ogiri_answer = Faker::Lorem.characters(number: 100)
+      expect(@ogiri_answer.invalid?).to eq true
+    end
+    it 'ogiri_answerが100文字以下であること: 101文字は×' do
+      @ogiri_answer.ogiri_answer = Faker::Lorem.characters(number: 101)
+      expect(@ogiri_answer.valid?).to eq false
+    end
   end
 
   describe 'アソシエーションのテスト' do
@@ -39,5 +37,4 @@ RSpec.describe OgiriAnswer, type: :model do
       end
     end
   end
-
 end

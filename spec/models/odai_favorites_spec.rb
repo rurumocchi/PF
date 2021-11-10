@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe OdaiFavorite, type: :model do
-
   describe 'アソシエーションのテスト' do
     context 'userモデルとの関係' do
       it '1:Nとなっている' do

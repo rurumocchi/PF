@@ -3,16 +3,16 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def after_sign_in_path_for(resource)
-    ogiris_path #ログイン後大喜利一覧に遷移
+  def after_sign_in_path_for(_resource)
+    ogiris_path # ログイン後大喜利一覧に遷移
   end
 
-  def after_sign_out_path_for(resource)
-    root_path #ログアウト後ホーム画面に
+  def after_sign_out_path_for(_resource)
+    root_path # ログアウト後ホーム画面に
   end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:email,:password])
+    devise_parameter_sanitizer.permit(:sign_in, keys: %i[email password])
   end
 end

@@ -1,5 +1,4 @@
 class OdaiFavorite < ApplicationRecord
-
   belongs_to :user
   belongs_to :ogiri_odai
 

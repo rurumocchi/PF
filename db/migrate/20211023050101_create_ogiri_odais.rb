@@ -1,7 +1,6 @@
 class CreateOgiriOdais < ActiveRecord::Migration[5.2]
   def change
     create_table :ogiri_odais do |t|
-
       t.integer :user_id
       t.string :odai_image_id
       t.integer :ogiri_odai_select, default: 0

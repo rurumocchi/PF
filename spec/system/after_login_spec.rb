@@ -56,8 +56,8 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_link 'お題一覧', href: ogiri_odais_path
       end
       it '自分の投稿と他人の投稿の画像のリンク先がそれぞれ正しい' do
-        expect(page).to have_link "", href: user_path(ogiri.user)
-        expect(page).to have_link "", href: user_path(other_ogiri.user)
+        expect(page).to have_link '', href: user_path(ogiri.user)
+        expect(page).to have_link '', href: user_path(other_ogiri.user)
       end
       it '自分の投稿と他人の投稿の名前のリンク先がそれぞれ正しい' do
         expect(page).to have_link ogiri.user.name, href: user_path(ogiri.user)
@@ -76,8 +76,8 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_link other_ogiri.genre_name, href: search_genre_path(keyword: ogiri.genre_name)
       end
       it '自分の投稿と他人の投稿の大喜利詳細のリンク先がそれぞれ正しい' do
-        expect(page).to have_link "大喜利詳細", href: ogiri_path(ogiri)
-        expect(page).to have_link "大喜利詳細", href: ogiri_path(other_ogiri)
+        expect(page).to have_link '大喜利詳細', href: ogiri_path(ogiri)
+        expect(page).to have_link '大喜利詳細', href: ogiri_path(other_ogiri)
       end
     end
   end
@@ -96,9 +96,9 @@ describe '[STEP2] ユーザログイン後のテスト' do
       it '大喜利一覧が表示される' do
         expect(page).to have_link '大喜利一覧', href: ogiris_path
       end
-       it '自分の投稿と他人の投稿の画像のリンク先がそれぞれ正しい' do
-        expect(page).to have_link "", href: user_path(ogiri_odai.user)
-        expect(page).to have_link "", href: user_path(other_ogiri_odai.user)
+      it '自分の投稿と他人の投稿の画像のリンク先がそれぞれ正しい' do
+        expect(page).to have_link '', href: user_path(ogiri_odai.user)
+        expect(page).to have_link '', href: user_path(other_ogiri_odai.user)
       end
       it '自分の投稿と他人の投稿の名前のリンク先がそれぞれ正しい' do
         expect(page).to have_link ogiri_odai.user.name, href: user_path(ogiri_odai.user)
@@ -110,11 +110,12 @@ describe '[STEP2] ユーザログイン後のテスト' do
       end
       it '自分の投稿と他人の投稿のカテゴリーのリンク先がそれぞれ正しい' do
         expect(page).to have_link ogiri_odai.genre_name, href: search_genre_odai_path(keyword: ogiri_odai.genre_name)
-        expect(page).to have_link other_ogiri_odai.genre_name, href: search_genre_odai_path(keyword: ogiri_odai.genre_name)
+        expect(page).to have_link other_ogiri_odai.genre_name,
+                                  href: search_genre_odai_path(keyword: ogiri_odai.genre_name)
       end
       it '自分の投稿と他人の投稿のお題詳細 & 回答へのリンク先がそれぞれ正しい' do
-        expect(page).to have_link "お題詳細 & 回答", href: ogiri_odai_path(ogiri_odai)
-        expect(page).to have_link "お題詳細 & 回答", href: ogiri_odai_path(other_ogiri_odai)
+        expect(page).to have_link 'お題詳細 & 回答', href: ogiri_odai_path(ogiri_odai)
+        expect(page).to have_link 'お題詳細 & 回答', href: ogiri_odai_path(other_ogiri_odai)
       end
     end
   end
@@ -131,31 +132,31 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_content '大喜利ジャンル検索BOX'
       end
       it '写真で一言へのリンクが存在する' do
-        expect(page).to have_link '写真で一言', href: search_genre_path('keyword': "写真で一言", 'search[how]': "match")
+        expect(page).to have_link '写真で一言', href: search_genre_path('keyword': '写真で一言', 'search[how]': 'match')
       end
       it '画像でボケてへのリンクが存在する' do
-        expect(page).to have_link '画像でボケて', href: search_genre_path('keyword': "画像でボケて", 'search[how]': "match")
+        expect(page).to have_link '画像でボケて', href: search_genre_path('keyword': '画像でボケて', 'search[how]': 'match')
       end
       it 'お題で一言へのリンクが存在する' do
-        expect(page).to have_link 'お題で一言', href: search_genre_path('keyword': "お題で一言", 'search[how]': "match")
+        expect(page).to have_link 'お題で一言', href: search_genre_path('keyword': 'お題で一言', 'search[how]': 'match')
       end
       it 'その他へのリンクが存在する' do
-        expect(page).to have_link 'その他', href: search_genre_path('keyword': "その他", 'search[how]': "match")
+        expect(page).to have_link 'その他', href: search_genre_path('keyword': 'その他', 'search[how]': 'match')
       end
       it 'お題ジャンル検索BOXが表示される' do
         expect(page).to have_content 'お題ジャンル検索BOX'
       end
       it '写真で一言へのリンクが存在する' do
-        expect(page).to have_link '写真で一言', href: search_genre_odai_path('keyword': "写真で一言", 'search[how]': "match")
+        expect(page).to have_link '写真で一言', href: search_genre_odai_path('keyword': '写真で一言', 'search[how]': 'match')
       end
       it '画像でボケてへのリンクが存在する' do
-        expect(page).to have_link '画像でボケて', href: search_genre_odai_path('keyword': "画像でボケて", 'search[how]': "match")
+        expect(page).to have_link '画像でボケて', href: search_genre_odai_path('keyword': '画像でボケて', 'search[how]': 'match')
       end
       it 'お題で一言へのリンクが存在する' do
-        expect(page).to have_link 'お題で一言', href: search_genre_odai_path('keyword': "お題で一言", 'search[how]': "match")
+        expect(page).to have_link 'お題で一言', href: search_genre_odai_path('keyword': 'お題で一言', 'search[how]': 'match')
       end
       it 'その他へのリンクが存在する' do
-        expect(page).to have_link 'その他', href: search_genre_odai_path('keyword': "その他", 'search[how]': "match")
+        expect(page).to have_link 'その他', href: search_genre_odai_path('keyword': 'その他', 'search[how]': 'match')
       end
     end
   end
@@ -175,8 +176,8 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_link 'お題いいねランキング', href: odai_favorite_rank_ogiri_odais_path
       end
       it '自分の投稿と他人の投稿の画像のリンク先がそれぞれ正しい' do
-        expect(page).to have_link "", href: user_path(ogiri.user)
-        expect(page).to have_link "", href: user_path(other_ogiri.user)
+        expect(page).to have_link '', href: user_path(ogiri.user)
+        expect(page).to have_link '', href: user_path(other_ogiri.user)
       end
       it '自分の投稿と他人の投稿の名前のリンク先がそれぞれ正しい' do
         expect(page).to have_link ogiri.user.name, href: user_path(ogiri.user)
@@ -195,8 +196,8 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_link other_ogiri.genre_name, href: search_genre_path(keyword: ogiri.genre_name)
       end
       it '自分の投稿と他人の投稿の大喜利詳細のリンク先がそれぞれ正しい' do
-        expect(page).to have_link "大喜利詳細", href: ogiri_path(ogiri)
-        expect(page).to have_link "大喜利詳細", href: ogiri_path(other_ogiri)
+        expect(page).to have_link '大喜利詳細', href: ogiri_path(ogiri)
+        expect(page).to have_link '大喜利詳細', href: ogiri_path(other_ogiri)
       end
     end
   end
@@ -216,8 +217,8 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_link '大喜利いいねランキング', href: favorite_rank_ogiris_path
       end
       it '自分の投稿と他人の投稿の画像のリンク先がそれぞれ正しい' do
-        expect(page).to have_link "", href: user_path(ogiri_odai.user)
-        expect(page).to have_link "", href: user_path(other_ogiri_odai.user)
+        expect(page).to have_link '', href: user_path(ogiri_odai.user)
+        expect(page).to have_link '', href: user_path(other_ogiri_odai.user)
       end
       it '自分の投稿と他人の投稿の名前のリンク先がそれぞれ正しい' do
         expect(page).to have_link ogiri_odai.user.name, href: user_path(ogiri_odai.user)
@@ -229,16 +230,17 @@ describe '[STEP2] ユーザログイン後のテスト' do
       end
       it '自分の投稿と他人の投稿のカテゴリーのリンク先がそれぞれ正しい' do
         expect(page).to have_link ogiri_odai.genre_name, href: search_genre_odai_path(keyword: ogiri_odai.genre_name)
-        expect(page).to have_link other_ogiri_odai.genre_name, href: search_genre_odai_path(keyword: ogiri_odai.genre_name)
+        expect(page).to have_link other_ogiri_odai.genre_name,
+                                  href: search_genre_odai_path(keyword: ogiri_odai.genre_name)
       end
       it '自分の投稿と他人の投稿のお題詳細 & 回答へのリンク先がそれぞれ正しい' do
-        expect(page).to have_link "お題詳細 & 回答", href: ogiri_odai_path(ogiri_odai)
-        expect(page).to have_link "お題詳細 & 回答", href: ogiri_odai_path(other_ogiri_odai)
+        expect(page).to have_link 'お題詳細 & 回答', href: ogiri_odai_path(ogiri_odai)
+        expect(page).to have_link 'お題詳細 & 回答', href: ogiri_odai_path(other_ogiri_odai)
       end
     end
   end
 
-   describe '投稿画面のテスト' do
+  describe '投稿画面のテスト' do
     before do
       visit new_ogiri_path
     end
@@ -265,13 +267,13 @@ describe '[STEP2] ユーザログイン後のテスト' do
       it '自分のユーザ編集画面へのリンクが存在する' do
         expect(page).to have_link '編集する', href: edit_user_path(user)
       end
-       it '「大喜利を投稿する」と表示される' do
+      it '「大喜利を投稿する」と表示される' do
         expect(page).to have_link '大喜利を投稿する', href: new_ogiri_path
       end
-       it '「お題を投稿する」と表示される' do
+      it '「お題を投稿する」と表示される' do
         expect(page).to have_link 'お題を投稿する', href: new_ogiri_odai_path
       end
-       it '「いいね一覧」と表示される' do
+      it '「いいね一覧」と表示される' do
         expect(page).to have_link 'いいね一覧', href: favorites_user_path(user)
       end
     end
@@ -326,7 +328,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_content '大喜利詳細'
       end
       it '大喜利ユーザアイコンが表示される' do
-        expect(page).to have_link "", href: user_path(ogiri.user)
+        expect(page).to have_link '', href: user_path(ogiri.user)
       end
       it '大喜利ユーザが表示される' do
         expect(page).to have_link ogiri.user.name, href: user_path(ogiri.user)
@@ -358,7 +360,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_link 'お題一覧', href: ogiri_odais_path
       end
       it '大喜利ユーザアイコンが表示される' do
-        expect(page).to have_link "", href: user_path(ogiri_odai.user)
+        expect(page).to have_link '', href: user_path(ogiri_odai.user)
       end
       it '大喜利ユーザが表示される' do
         expect(page).to have_link ogiri_odai.user.name, href: user_path(ogiri_odai.user)
@@ -391,10 +393,12 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_link ogiri_answer.user.name, href: user_path(ogiri_answer.user)
       end
       it 'お題の回答が表示される' do
-        expect(page).to have_link ogiri_answer.ogiri_answer, href: ogiri_odai_ogiri_answer_path(ogiri_answer.ogiri_odai_id, ogiri_answer.id)
+        expect(page).to have_link ogiri_answer.ogiri_answer,
+                                  href: ogiri_odai_ogiri_answer_path(ogiri_answer.ogiri_odai_id, ogiri_answer.id)
       end
       it '回答の削除リンクが表示される' do
-        expect(page).to have_link 'Destroy', href: ogiri_odai_ogiri_answer_path(ogiri_answer.ogiri_odai_id, ogiri_answer.id)
+        expect(page).to have_link 'Destroy',
+                                  href: ogiri_odai_ogiri_answer_path(ogiri_answer.ogiri_odai_id, ogiri_answer.id)
       end
     end
   end
@@ -411,13 +415,13 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_content 'いいねした大喜利投稿一覧'
       end
       it 'いいねしたお題一覧が表示される' do
-          expect(page).to have_link 'いいねしたお題一覧', href: odai_favorites_user_path(user)
+        expect(page).to have_link 'いいねしたお題一覧', href: odai_favorites_user_path(user)
       end
       it 'いいねした回答一覧が表示される' do
-          expect(page).to have_link 'いいねした回答一覧', href: answer_favorites_user_path(user)
+        expect(page).to have_link 'いいねした回答一覧', href: answer_favorites_user_path(user)
       end
       it '大喜利ユーザアイコンが表示される' do
-        expect(page).to have_link "", href: user_path(ogiri.user)
+        expect(page).to have_link '', href: user_path(ogiri.user)
       end
       it '大喜利ユーザが表示される' do
         expect(page).to have_link ogiri.user.name, href: user_path(ogiri.user)
@@ -425,7 +429,6 @@ describe '[STEP2] ユーザログイン後のテスト' do
       it '大喜利ユーザが表示される' do
         expect(page).to have_link ogiri.user.name, href: user_path(ogiri.user)
       end
-
     end
   end
 
@@ -441,18 +444,17 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_content 'いいねしたお題一覧'
       end
       it 'いいねした大喜利一覧が表示される' do
-          expect(page).to have_link 'いいねした大喜利投稿一覧', href: favorites_user_path(user)
+        expect(page).to have_link 'いいねした大喜利投稿一覧', href: favorites_user_path(user)
       end
       it 'いいねした回答一覧が表示される' do
-          expect(page).to have_link 'いいねした回答一覧', href: answer_favorites_user_path(user)
+        expect(page).to have_link 'いいねした回答一覧', href: answer_favorites_user_path(user)
       end
       it '大喜利ユーザアイコンが表示される' do
-        expect(page).to have_link "", href: user_path(ogiri_odai.user)
+        expect(page).to have_link '', href: user_path(ogiri_odai.user)
       end
       it '大喜利ユーザが表示される' do
         expect(page).to have_link ogiri_odai.user.name, href: user_path(ogiri_odai.user)
       end
-
     end
   end
 
@@ -468,10 +470,10 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_content 'いいねした回答一覧'
       end
       it 'いいねした大喜利一覧が表示される' do
-          expect(page).to have_link 'いいねした大喜利投稿一覧', href: favorites_user_path(user)
+        expect(page).to have_link 'いいねした大喜利投稿一覧', href: favorites_user_path(user)
       end
       it 'いいねしたお題一覧が表示される' do
-          expect(page).to have_link 'いいねしたお題一覧', href: odai_favorites_user_path(user)
+        expect(page).to have_link 'いいねしたお題一覧', href: odai_favorites_user_path(user)
       end
       it '回答者ユーザアイコンが表示される' do
         expect(page).to have_link '', href: user_path(ogiri_answer.user)
@@ -479,7 +481,6 @@ describe '[STEP2] ユーザログイン後のテスト' do
       it '回答者ユーザが表示される' do
         expect(page).to have_link ogiri_answer.user.name, href: user_path(ogiri_answer.user)
       end
-
     end
   end
 
@@ -495,13 +496,13 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_content '投稿した大喜利'
       end
       it '投稿したお題一覧が表示される' do
-          expect(page).to have_link '投稿したお題', href: create_odais_user_path(user)
+        expect(page).to have_link '投稿したお題', href: create_odais_user_path(user)
       end
       it '投稿した回答一覧が表示される' do
-          expect(page).to have_link '投稿した回答', href: create_answers_user_path(user)
+        expect(page).to have_link '投稿した回答', href: create_answers_user_path(user)
       end
       it '大喜利ユーザアイコンが表示される' do
-        expect(page).to have_link "", href: user_path(ogiri.user)
+        expect(page).to have_link '', href: user_path(ogiri.user)
       end
       it '大喜利ユーザが表示される' do
         expect(page).to have_link ogiri.user.name, href: user_path(ogiri.user)
@@ -533,13 +534,13 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_content '投稿したお題'
       end
       it '投稿した大喜利一覧が表示される' do
-          expect(page).to have_link '投稿した大喜利', href: user_path(user)
+        expect(page).to have_link '投稿した大喜利', href: user_path(user)
       end
       it '投稿した回答一覧が表示される' do
-          expect(page).to have_link '投稿した回答', href: create_answers_user_path(user)
+        expect(page).to have_link '投稿した回答', href: create_answers_user_path(user)
       end
       it '大喜利ユーザアイコンが表示される' do
-        expect(page).to have_link "", href: user_path(ogiri_odai.user)
+        expect(page).to have_link '', href: user_path(ogiri_odai.user)
       end
       it '大喜利ユーザが表示される' do
         expect(page).to have_link ogiri_odai.user.name, href: user_path(ogiri_odai.user)
@@ -571,10 +572,10 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_content '投稿したお題'
       end
       it '投稿した大喜利一覧が表示される' do
-          expect(page).to have_link '投稿した大喜利', href: user_path(user)
+        expect(page).to have_link '投稿した大喜利', href: user_path(user)
       end
       it '投稿したお題一覧が表示される' do
-          expect(page).to have_link '投稿したお題', href: create_odais_user_path(user)
+        expect(page).to have_link '投稿したお題', href: create_odais_user_path(user)
       end
       it '回答者ユーザアイコンが表示される' do
         expect(page).to have_link '', href: user_path(ogiri_answer.user)
@@ -630,5 +631,4 @@ describe '[STEP2] ユーザログイン後のテスト' do
       end
     end
   end
-
 end

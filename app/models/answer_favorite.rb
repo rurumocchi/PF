@@ -1,5 +1,4 @@
 class AnswerFavorite < ApplicationRecord
-
   belongs_to :user
   belongs_to :ogiri_answer
 

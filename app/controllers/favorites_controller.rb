@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def create
     @ogiri = Ogiri.find(params[:ogiri_id])
@@ -14,5 +14,4 @@ before_action :authenticate_user!
     favorite.destroy
     redirect_to request.referer
   end
-
 end

@@ -1,5 +1,4 @@
 class AnswerFavoritesController < ApplicationController
-
   def create
     @ogiri_answer = OgiriAnswer.find(params[:ogiri_answer_id])
     answer_favorite = @ogiri_answer.answer_favorites.new(user_id: current_user.id)

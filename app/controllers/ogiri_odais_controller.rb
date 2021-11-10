@@ -12,17 +12,17 @@ class OgiriOdaisController < ApplicationController
     if @ogiri_odai.save!
       redirect_to ogiri_odais_path
     else
-       render 'new'
+      render 'new'
     end
   end
 
   def index
-    @ogiri_odais = OgiriOdai.page(params[:page]).per(5).order(created_at: :desc) #お題一覧を表示(新しい順)
+    @ogiri_odais = OgiriOdai.page(params[:page]).per(5).order(created_at: :desc) # お題一覧を表示(新しい順)
   end
 
   def show
     @ogiri_odai = OgiriOdai.find(params[:id])
-    @ogiri_answers = OgiriAnswer.all #回答した一覧
+    @ogiri_answers = OgiriAnswer.all # 回答した一覧
   end
 
   def destroy
@@ -32,8 +32,11 @@ class OgiriOdaisController < ApplicationController
   end
 
   def odai_favorite_rank
-     ogiri_odais = OgiriOdai.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size} #お題いいねランキング
-     @ogiri_odais = Kaminari.paginate_array(ogiri_odais).page(params[:page]).per(5)
+    ogiri_odais = # お題いいねランキング
+      OgiriOdai.includes(:favorited_users).sort do |a, b|
+        b.favorited_users.size <=> a.favorited_users.size
+      end
+    @ogiri_odais = Kaminari.paginate_array(ogiri_odais).page(params[:page]).per(5)
   end
 
   private
@@ -41,11 +44,9 @@ class OgiriOdaisController < ApplicationController
   def ogiri_odai_params
     params.require(:ogiri_odai).permit(:odai_image, :genre_name, :ogiri_odai_select, :odai_text)
   end
+
   def ensure_correct_user
     @ogiri_odai = OgiriOdai.find(params[:id])
-    unless @ogiri_odai.user == current_user
-      redirect_to ogiri_odais_path
-    end
+    redirect_to ogiri_odais_path unless @ogiri_odai.user == current_user
   end
-
 end
